@@ -282,10 +282,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 For questions, issues, or feature requests:
-- 📧 Email: support@se-tailoring-framework.com
-- 🐛 Issues: GitHub Issues tracker
-- 📖 Documentation: Framework documentation wiki
-- 💬 Discussions: GitHub Discussions
+- 📧 Email: haitao.wu@incose.net
 
 ## 🗺 Roadmap
 
