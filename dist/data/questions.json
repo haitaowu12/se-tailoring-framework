@@ -1,0 +1,246 @@
+{
+  "assessmentCategories": [
+    {
+      "id": "project_characteristics",
+      "name": "Project Characteristics",
+      "description": "Basic project scope, duration, and scale factors",
+      "weight": 0.25,
+      "questions": [
+        {
+          "id": "project_duration",
+          "text": "What is the estimated project duration?",
+          "type": "select",
+          "dimension": "scale",
+          "weight": 0.3,
+          "options": [
+            {"value": 1, "label": "< 6 months", "score": 1},
+            {"value": 2, "label": "6-12 months", "score": 2},
+            {"value": 3, "label": "1-2 years", "score": 3},
+            {"value": 4, "label": "2-5 years", "score": 4},
+            {"value": 5, "label": "> 5 years", "score": 5}
+          ]
+        },
+        {
+          "id": "team_size",
+          "text": "What is the expected team size?",
+          "type": "select",
+          "dimension": "scale",
+          "weight": 0.25,
+          "options": [
+            {"value": 1, "label": "1-5 people", "score": 1},
+            {"value": 2, "label": "6-15 people", "score": 2},
+            {"value": 3, "label": "16-50 people", "score": 3},
+            {"value": 4, "label": "51-200 people", "score": 4},
+            {"value": 5, "label": "> 200 people", "score": 5}
+          ]
+        },
+        {
+          "id": "budget_range",
+          "text": "What is the estimated project budget range?",
+          "type": "select",
+          "dimension": "scale",
+          "weight": 0.25,
+          "options": [
+            {"value": 1, "label": "< $100K", "score": 1},
+            {"value": 2, "label": "$100K - $1M", "score": 2},
+            {"value": 3, "label": "$1M - $10M", "score": 3},
+            {"value": 4, "label": "$10M - $100M", "score": 4},
+            {"value": 5, "label": "> $100M", "score": 5}
+          ]
+        },
+        {
+          "id": "geographical_distribution",
+          "text": "How geographically distributed is the project team?",
+          "type": "select",
+          "dimension": "scale",
+          "weight": 0.2,
+          "options": [
+            {"value": 1, "label": "Single location", "score": 1},
+            {"value": 2, "label": "Multiple locations, same time zone", "score": 2},
+            {"value": 3, "label": "Multiple time zones, same country", "score": 3},
+            {"value": 4, "label": "Multiple countries", "score": 4},
+            {"value": 5, "label": "Global distribution", "score": 5}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "technical_complexity",
+      "name": "Technical Complexity",
+      "description": "Technical challenges, innovation requirements, and system complexity",
+      "weight": 0.3,
+      "questions": [
+        {
+          "id": "technology_maturity",
+          "text": "What is the maturity level of the primary technologies being used?",
+          "type": "select",
+          "dimension": "complexity",
+          "weight": 0.3,
+          "options": [
+            {"value": 1, "label": "Mature, well-established technologies", "score": 1},
+            {"value": 2, "label": "Mostly mature with some newer components", "score": 2},
+            {"value": 3, "label": "Mix of mature and emerging technologies", "score": 3},
+            {"value": 4, "label": "Primarily emerging/cutting-edge technologies", "score": 4},
+            {"value": 5, "label": "Experimental or research-level technologies", "score": 5}
+          ]
+        },
+        {
+          "id": "system_integration",
+          "text": "How complex are the system integration requirements?",
+          "type": "select",
+          "dimension": "complexity",
+          "weight": 0.25,
+          "options": [
+            {"value": 1, "label": "Standalone system with minimal interfaces", "score": 1},
+            {"value": 2, "label": "Integration with a few existing systems", "score": 2},
+            {"value": 3, "label": "Integration with multiple systems", "score": 3},
+            {"value": 4, "label": "Complex enterprise integration", "score": 4},
+            {"value": 5, "label": "System-of-systems integration", "score": 5}
+          ]
+        },
+        {
+          "id": "technical_innovation",
+          "text": "What level of technical innovation is required?",
+          "type": "select",
+          "dimension": "complexity",
+          "weight": 0.25,
+          "options": [
+            {"value": 1, "label": "Using proven solutions and approaches", "score": 1},
+            {"value": 2, "label": "Minor customization of existing solutions", "score": 2},
+            {"value": 3, "label": "Significant customization or new combinations", "score": 3},
+            {"value": 4, "label": "Novel technical approaches required", "score": 4},
+            {"value": 5, "label": "Breakthrough innovation required", "score": 5}
+          ]
+        },
+        {
+          "id": "performance_requirements",
+          "text": "How stringent are the performance requirements?",
+          "type": "select",
+          "dimension": "complexity",
+          "weight": 0.2,
+          "options": [
+            {"value": 1, "label": "Standard performance expectations", "score": 1},
+            {"value": 2, "label": "Above-average performance required", "score": 2},
+            {"value": 3, "label": "High performance requirements", "score": 3},
+            {"value": 4, "label": "Extreme performance requirements", "score": 4},
+            {"value": 5, "label": "Performance at the limits of feasibility", "score": 5}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "safety_criticality",
+      "name": "Safety and Criticality",
+      "description": "Safety requirements, regulatory compliance, and risk tolerance",
+      "weight": 0.25,
+      "questions": [
+        {
+          "id": "safety_integrity_level",
+          "text": "What is the required Safety Integrity Level (SIL) or equivalent?",
+          "type": "select",
+          "dimension": "safety",
+          "weight": 0.4,
+          "options": [
+            {"value": 1, "label": "No specific safety requirements", "score": 1},
+            {"value": 2, "label": "Basic safety considerations", "score": 2},
+            {"value": 3, "label": "SIL 1 or equivalent", "score": 3},
+            {"value": 4, "label": "SIL 2-3 or equivalent", "score": 4},
+            {"value": 5, "label": "SIL 4 or highest criticality", "score": 5}
+          ]
+        },
+        {
+          "id": "regulatory_compliance",
+          "text": "What level of regulatory compliance is required?",
+          "type": "select",
+          "dimension": "safety",
+          "weight": 0.3,
+          "options": [
+            {"value": 1, "label": "No specific regulatory requirements", "score": 1},
+            {"value": 2, "label": "Industry best practices", "score": 2},
+            {"value": 3, "label": "Some regulatory oversight", "score": 3},
+            {"value": 4, "label": "Strict regulatory compliance required", "score": 4},
+            {"value": 5, "label": "Multiple regulatory bodies and certifications", "score": 5}
+          ]
+        },
+        {
+          "id": "failure_consequences",
+          "text": "What are the potential consequences of system failure?",
+          "type": "select",
+          "dimension": "safety",
+          "weight": 0.3,
+          "options": [
+            {"value": 1, "label": "Minor inconvenience or delays", "score": 1},
+            {"value": 2, "label": "Moderate business impact", "score": 2},
+            {"value": 3, "label": "Significant financial or operational impact", "score": 3},
+            {"value": 4, "label": "Potential for injury or major damage", "score": 4},
+            {"value": 5, "label": "Potential for loss of life or catastrophic damage", "score": 5}
+          ]
+        }
+      ]
+    },
+    {
+      "id": "organizational_maturity",
+      "name": "Organizational Maturity",
+      "description": "Process maturity, experience levels, and organizational capabilities",
+      "weight": 0.2,
+      "questions": [
+        {
+          "id": "process_maturity",
+          "text": "What is the organization's process maturity level?",
+          "type": "select",
+          "dimension": "maturity",
+          "weight": 0.3,
+          "options": [
+            {"value": 1, "label": "Ad-hoc processes", "score": 1},
+            {"value": 2, "label": "Some documented processes", "score": 2},
+            {"value": 3, "label": "Standardized processes", "score": 3},
+            {"value": 4, "label": "Managed and measured processes", "score": 4},
+            {"value": 5, "label": "Optimized and continuously improving", "score": 5}
+          ]
+        },
+        {
+          "id": "team_experience",
+          "text": "What is the experience level of the project team?",
+          "type": "select",
+          "dimension": "maturity",
+          "weight": 0.3,
+          "options": [
+            {"value": 1, "label": "Mostly junior team members", "score": 1},
+            {"value": 2, "label": "Mix with more junior members", "score": 2},
+            {"value": 3, "label": "Balanced experience levels", "score": 3},
+            {"value": 4, "label": "Mostly experienced team members", "score": 4},
+            {"value": 5, "label": "Highly experienced senior team", "score": 5}
+          ]
+        },
+        {
+          "id": "organizational_support",
+          "text": "What level of organizational support and infrastructure is available?",
+          "type": "select",
+          "dimension": "maturity",
+          "weight": 0.25,
+          "options": [
+            {"value": 1, "label": "Limited support and basic tools", "score": 1},
+            {"value": 2, "label": "Basic support with some specialized tools", "score": 2},
+            {"value": 3, "label": "Good support with integrated toolsets", "score": 3},
+            {"value": 4, "label": "Strong support with advanced tools", "score": 4},
+            {"value": 5, "label": "Comprehensive support with cutting-edge infrastructure", "score": 5}
+          ]
+        },
+        {
+          "id": "change_tolerance",
+          "text": "How well does the organization handle change and uncertainty?",
+          "type": "select",
+          "dimension": "maturity",
+          "weight": 0.15,
+          "options": [
+            {"value": 1, "label": "Very low tolerance for change", "score": 1},
+            {"value": 2, "label": "Limited ability to adapt", "score": 2},
+            {"value": 3, "label": "Moderate change management capability", "score": 3},
+            {"value": 4, "label": "Good at managing change", "score": 4},
+            {"value": 5, "label": "Excellent at adapting to change", "score": 5}
+          ]
+        }
+      ]
+    }
+  ]
+}
