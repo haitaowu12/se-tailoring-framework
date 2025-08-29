@@ -80,21 +80,22 @@ class SEFrameworkApp {
       console.log("Starting data loading...");
 
       // Load data files sequentially for better error handling
-      const processesResponse = await fetch("data/processes.json");
+      const basePath = window.location.hostname === 'localhost' ? '' : '/se-tailoring-framework';
+      const processesResponse = await fetch(`${basePath}/data/processes.json`);
       console.log("Processes response status:", processesResponse.status);
       if (!processesResponse.ok) {
         throw new Error("Failed to load processes data");
       }
       const processes = await processesResponse.json();
 
-      const questionsResponse = await fetch("data/questions.json");
+      const questionsResponse = await fetch(`${basePath}/data/questions.json`);
       console.log("Questions response status:", questionsResponse.status);
       if (!questionsResponse.ok) {
         throw new Error("Failed to load questions data");
       }
       const questions = await questionsResponse.json();
 
-      const dependenciesResponse = await fetch("data/dependencies.json");
+      const dependenciesResponse = await fetch(`${basePath}/data/dependencies.json`);
       console.log("Dependencies response status:", dependenciesResponse.status);
       if (!dependenciesResponse.ok) {
         throw new Error("Failed to load dependencies data");
