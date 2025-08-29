@@ -1,0 +1,46 @@
+{
+  "name": "se-tailoring-framework",
+  "version": "1.0.0",
+  "description": "A comprehensive web-based tool for tailoring Systems Engineering processes based on ISO/IEC/IEEE 15288:2023 standard. This framework provides intelligent recommendations for process formality levels based on project characteristics, complexity, safety requirements, and organizational maturity.",
+  "main": "index.js",
+  "homepage": "https://haitaowu12.github.io/se-tailoring-framework/",
+  "directories": {
+    "doc": "docs"
+  },
+  "scripts": {
+    "dev": "webpack serve --mode development --open",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development",
+    "serve": "webpack serve --mode development",
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "lint": "eslint js/**/*.js",
+    "lint:fix": "eslint js/**/*.js --fix"
+  },
+  "keywords": [
+    "systems-engineering",
+    "iso-15288",
+    "process-tailoring",
+    "recommendation-engine",
+    "visualization"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "css-loader": "^6.8.1",
+    "eslint": "^8.45.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-webpack-plugin": "^4.0.0",
+    "html-webpack-plugin": "^5.5.3",
+    "style-loader": "^3.3.3",
+    "webpack": "^5.88.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
+  },
+  "dependencies": {
+    "bootstrap": "^5.3.0",
+    "bootstrap-icons": "^1.10.5",
+    "chart.js": "^4.3.3",
+    "d3": "^7.8.5",
+    "jspdf": "^2.5.1"
+  }
+}
