@@ -404,7 +404,7 @@ class ProcessNetworkVisualizer {
         id: process.id,
         name: process.name,
         category: process.category,
-        description: process.description,
+        description: process.tailoringLevels?.basic?.description || '',
         recommendedLevel: recommendedLevel,
         effort: recommendation?.effort || 1,
         complexity: recommendation?.complexity || 1,

@@ -124,6 +124,12 @@ class AssessmentEngine {
     // Check if current question has been answered
     const currentQuestion = this.getCurrentQuestion();
     const hasAnswered = currentQuestion && this.app.assessmentResponses[currentQuestion.id];
+    const isLast = this.isLastQuestion();
+    
+    // Only show "Complete Assessment" when on the last question AND it has been answered
+    const buttonText = (isLast && hasAnswered) ? 'Complete Assessment' : 'Next Question';
+    const buttonClass = (isLast && hasAnswered) ? 'btn-success' : 'btn-primary';
+    const buttonIcon = (isLast && hasAnswered) ? 'bi-check-lg' : 'bi-arrow-right';
     
     navContainer.innerHTML = `
             <div class="d-flex justify-content-between">
@@ -132,11 +138,11 @@ class AssessmentEngine {
                         ${this.currentQuestionIndex === 0 && this.currentCategoryIndex === 0 ? 'disabled' : ''}>
                     <i class="bi bi-arrow-left"></i> Previous
                 </button>
-                <button class="btn btn-primary" 
+                <button class="btn ${buttonClass}" 
                         onclick="window.seApp.assessmentEngine.nextQuestion()"
                         ${!hasAnswered ? 'disabled' : ''}>
-                    ${this.isLastQuestion() ? 'Complete Assessment' : 'Next Question'} 
-                    <i class="bi bi-arrow-right"></i>
+                    ${buttonText} 
+                    <i class="bi ${buttonIcon}"></i>
                 </button>
             </div>
         `;

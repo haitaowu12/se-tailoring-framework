@@ -12,13 +12,24 @@ class RecommendationEngine {
   }
 
   generateRecommendations(assessmentScores) {
+    console.log("=== Recommendation Engine: generateRecommendations called ===");
+    console.log("assessmentScores:", assessmentScores);
+    console.log("processData available:", !!this.processData);
+    console.log("processData.processes:", this.processData.processes ? this.processData.processes.length : 0);
+    
     const processes = this.processData.processes || [];
     const recommendations = {};
 
+    console.log("Processing", processes.length, "processes");
+
     // Generate base recommendations for each process
     processes.forEach(process => {
+      console.log("Processing process:", process.id, process.name);
       recommendations[process.id] = this.calculateProcessLevel(process, assessmentScores);
+      console.log("Generated recommendation for", process.id, ":", recommendations[process.id]);
     });
+
+    console.log("Base recommendations generated:", Object.keys(recommendations));
 
     // Apply dependency constraints
     this.applyDependencyConstraints(recommendations);
@@ -29,13 +40,19 @@ class RecommendationEngine {
     // Calculate confidence scores
     this.calculateConfidenceScores(recommendations, assessmentScores);
 
+    console.log("Final recommendations:", recommendations);
+    console.log("Final recommendations keys:", Object.keys(recommendations));
+
     this.recommendations = recommendations;
     return recommendations;
   }
 
   calculateProcessLevel(process, scores) {
+    console.log("calculateProcessLevel for process:", process.id, "with scores:", scores);
+    
     // Base level calculation using weighted assessment scores
     const baseScore = this.calculateBaseScore(process, scores);
+    console.log("Base score for", process.id, ":", baseScore);
 
     // Determine level based on score thresholds
     let level = 'basic';
@@ -44,8 +61,9 @@ class RecommendationEngine {
     } else if (baseScore >= 2.1) {
       level = 'standard';
     }
+    console.log("Recommended level for", process.id, ":", level);
 
-    return {
+    const result = {
       processId: process.id,
       processName: process.name,
       category: process.category,
@@ -60,6 +78,9 @@ class RecommendationEngine {
       constraints: [],
       confidence: 0.8, // Will be calculated later
     };
+    
+    console.log("Final recommendation object for", process.id, ":", result);
+    return result;
   }
 
   calculateBaseScore(process, scores) {
@@ -303,12 +324,23 @@ class RecommendationEngine {
     if (!container) return;
 
     const assessmentData = this.app.getAssessmentData();
+    console.log("Recommendations render - assessmentData:", assessmentData);
+    console.log("Recommendations render - hasCompletedAssessment:", this.app.hasCompletedAssessment());
 
-    if (!assessmentData.recommendations || Object.keys(assessmentData.recommendations).length === 0) {
+    // Check if assessment is completed before showing recommendations
+    if (!this.app.hasCompletedAssessment()) {
+      console.log("Assessment not completed, showing no recommendations");
       this.renderNoRecommendations(container);
       return;
     }
 
+    if (!assessmentData.recommendations || Object.keys(assessmentData.recommendations).length === 0) {
+      console.log("No recommendations data available, showing no recommendations");
+      this.renderNoRecommendations(container);
+      return;
+    }
+
+    console.log("Rendering recommendations with data:", assessmentData.recommendations);
     this.renderRecommendations(container, assessmentData);
   }
 

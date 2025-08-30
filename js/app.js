@@ -86,7 +86,8 @@ class SEFrameworkApp {
       if (!processesResponse.ok) {
         throw new Error("Failed to load processes data");
       }
-      const processes = await processesResponse.json();
+      const processesArray = await processesResponse.json();
+      const processes = { processes: processesArray };
 
       const questionsResponse = await fetch(`${basePath}/data/questions.json`);
       console.log("Questions response status:", questionsResponse.status);
@@ -103,7 +104,7 @@ class SEFrameworkApp {
       const dependencies = await dependenciesResponse.json();
 
       console.log("Data loaded successfully:", {
-        processes: processes.processes ? processes.processes.length : 0,
+        processes: processesArray ? processesArray.length : 0,
         questions: questions.assessmentCategories
           ? questions.assessmentCategories.length
           : 0,
@@ -376,7 +377,18 @@ class SEFrameworkApp {
   }
 
   renderRecommendationsView() {
+    console.log("renderRecommendationsView called");
+    console.log("hasCompletedAssessment:", this.hasCompletedAssessment());
+    console.log("recommendations object:", this.recommendations);
+    console.log("recommendationEngine available:", !!this.recommendationEngine);
+    
     if (this.recommendationEngine) {
+      // Ensure recommendations are generated before rendering
+      if (this.hasCompletedAssessment() && (!this.recommendations || Object.keys(this.recommendations).length === 0)) {
+        console.log("Calling calculateScores to generate recommendations");
+        this.calculateScores();
+      }
+      console.log("Calling recommendationEngine.render()");
       this.recommendationEngine.render();
     }
   }
@@ -462,6 +474,7 @@ class SEFrameworkApp {
   }
 
   calculateScores() {
+    console.log("Calculating scores...");
     if (!this.questionData.assessmentCategories) return;
 
     const dimensionScores = {
@@ -525,9 +538,21 @@ class SEFrameworkApp {
 
     // Generate recommendations if assessment is complete
     if (this.hasCompletedAssessment() && this.recommendationEngine) {
-      this.recommendations = this.recommendationEngine.generateRecommendations(
-        this.assessmentScores,
-      );
+      console.log("Assessment complete, generating recommendations...");
+      console.log("Assessment scores data:", this.assessmentScores);
+      
+      // Ensure the scores object has the expected structure
+      const recommendationScores = {
+        complexity: this.assessmentScores.complexity || 0,
+        safety: this.assessmentScores.safety || 0,
+        scale: this.assessmentScores.scale || 0,
+        maturity: this.assessmentScores.maturity || 0
+      };
+      
+      console.log("Scores passed to recommendation engine:", recommendationScores);
+      this.recommendations = this.recommendationEngine.generateRecommendations(recommendationScores);
+      console.log("Generated recommendations:", this.recommendations);
+      console.log("Recommendations object keys:", Object.keys(this.recommendations || {}));
     }
   }
 
@@ -729,7 +754,7 @@ class SEFrameworkApp {
                 <div class="col-md-6">
                     <h6>Current Recommendation</h6>
                     <span class="level-badge level-${recommendedLevel}">${recommendedLevel}</span>
-                    <p class="mt-2 text-muted">${process.description || 'No description available'}</p>
+                    <p class="mt-2 text-muted">${process.tailoringLevels?.[recommendedLevel]?.description || 'No description available'}</p>
                 </div>
                 <div class="col-md-6">
                     <h6>Process Metrics</h6>
@@ -776,6 +801,10 @@ class SEFrameworkApp {
                                         <p><strong>Key Outputs:</strong></p>
                                         <ul>
                                             ${process.tailoringLevels[level].outputs?.map(output => `<li>${output}</li>`).join('') || '<li>No outputs specified</li>'}
+                                        </ul>
+                                        <p><strong>Key Artifacts/Deliverables:</strong></p>
+                                        <ul>
+                                            ${process.tailoringLevels[level].artifacts?.map(artifact => `<li>${artifact}</li>`).join('') || '<li>No artifacts specified</li>'}
                                         </ul>
                                     </div>
                                 </div>
@@ -890,7 +919,7 @@ class SEFrameworkApp {
     return {
       responses: this.assessmentResponses,
       scores: this.assessmentScores,
-      recommendations: this.recommendations,
+      recommendations: this.recommendationEngine ? this.recommendationEngine.getRecommendations() : this.recommendations,
     };
   }
 
