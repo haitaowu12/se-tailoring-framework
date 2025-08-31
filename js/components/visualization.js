@@ -350,7 +350,10 @@ class ProcessNetworkVisualizer {
   updateForceLayout() {
     if (this.simulation) {
       this.simulation.force('charge', d3.forceManyBody().strength(this.currentFilters.layoutSettings.chargeStrength));
-      this.simulation.force('link', d3.forceLink(this.links).strength(this.currentFilters.layoutSettings.linkStrength));
+      const linkForce = this.simulation.force('link');
+      if (linkForce) {
+        linkForce.strength(this.currentFilters.layoutSettings.linkStrength);
+      }
       this.simulation.alpha(0.3).restart();
     }
   }
@@ -711,7 +714,10 @@ class ProcessNetworkVisualizer {
 
     // Update simulation
     this.simulation.nodes(visibleNodes);
-    this.simulation.force('link').links(visibleLinks);
+    const linkForce = this.simulation.force('link');
+    if (linkForce) {
+      linkForce.links(visibleLinks);
+    }
     this.simulation.alpha(0.3).restart();
   }
 
