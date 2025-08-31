@@ -80,6 +80,18 @@ class ProcessNetworkVisualizer {
                         Technical Processes
                     </label>
                 </div>
+                <div class="form-check form-check-sm">
+                    <input class="form-check-input" type="checkbox" id="filter-agreement" checked>
+                    <label class="form-check-label" for="filter-agreement">
+                        Agreement Processes
+                    </label>
+                </div>
+                <div class="form-check form-check-sm">
+                    <input class="form-check-input" type="checkbox" id="filter-project" checked>
+                    <label class="form-check-label" for="filter-project">
+                        Project Processes
+                    </label>
+                </div>
             </div>
 
             <div class="control-group">
@@ -105,6 +117,15 @@ class ProcessNetworkVisualizer {
             </div>
 
             <div class="control-group">
+                <label class="control-label">Visualization Mode</label>
+                <select class="form-select form-select-sm" id="view-mode-select">
+                    <option value="network">Network Overview</option>
+                    <option value="flow">Input/Output Flow</option>
+                    <option value="focused">Focused Process View</option>
+                </select>
+            </div>
+
+            <div class="control-group">
                 <label class="control-label">Display Options</label>
                 <div class="form-check form-check-sm">
                     <input class="form-check-input" type="checkbox" id="show-dependencies" checked>
@@ -125,6 +146,12 @@ class ProcessNetworkVisualizer {
                     </label>
                 </div>
                 <div class="form-check form-check-sm">
+                    <input class="form-check-input" type="checkbox" id="show-inputs-outputs" checked>
+                    <label class="form-check-label" for="show-inputs-outputs">
+                        Show Inputs/Outputs
+                    </label>
+                </div>
+                <div class="form-check form-check-sm">
                     <input class="form-check-input" type="checkbox" id="show-recommendations" checked>
                     <label class="form-check-label" for="show-recommendations">
                         Show Recommendations
@@ -138,6 +165,17 @@ class ProcessNetworkVisualizer {
                     <option value="force">Force-Directed</option>
                     <option value="circular">Circular</option>
                     <option value="hierarchical">Hierarchical</option>
+                    <option value="flow">Flow Layout</option>
+                </select>
+            </div>
+
+            <div class="control-group">
+                <label class="control-label">Focus Process</label>
+                <select class="form-select form-select-sm" id="focus-process-select">
+                    <option value="">All Processes</option>
+                    ${this.processData.processes ? this.processData.processes.map(p => 
+                      `<option value="${p.id}">${p.name}</option>`
+                    ).join('') : ''}
                 </select>
             </div>
 
@@ -167,6 +205,10 @@ class ProcessNetworkVisualizer {
                 <button class="btn btn-outline-info btn-sm w-100 mt-2" id="help-network-btn">
                     <i class="bi bi-question-circle"></i>
                     Help & Tips
+                </button>
+                <button class="btn btn-outline-success btn-sm w-100 mt-2" id="zoom-fit-btn">
+                    <i class="bi bi-arrows-fullscreen"></i>
+                    Fit to View
                 </button>
             </div>
         `;
@@ -411,18 +453,36 @@ class ProcessNetworkVisualizer {
         confidence: recommendation?.confidence || 0.8,
         x: Math.random() * this.width,
         y: Math.random() * this.height,
+        inputs: this.getAllInputs(process),
+        outputs: this.getAllOutputs(process)
       };
     });
 
-    // Create links from dependencies
-    this.links = dependencies.map(dep => ({
-      source: dep.source,
-      target: dep.target,
-      type: dep.type || 'horizontal',
-      sourceLevel: dep.sourceLevel,
-      targetLevel: dep.targetLevel,
-      strength: dep.type === 'vertical' ? 0.8 : 0.4,
-    }));
+    // Create links from dependencies - resolve node references
+    this.links = dependencies.map(dep => {
+      const sourceNode = this.nodes.find(n => n.id === dep.source);
+      const targetNode = this.nodes.find(n => n.id === dep.target);
+      
+      // Only create link if both nodes exist
+      if (!sourceNode || !targetNode) {
+        console.warn(`Skipping dependency: ${dep.source} -> ${dep.target} (node not found)`);
+        return null;
+      }
+      
+      return {
+        source: sourceNode,
+        target: targetNode,
+        type: dep.type || 'horizontal',
+        sourceLevel: dep.sourceLevel,
+        targetLevel: dep.targetLevel,
+        strength: dep.type === 'vertical' ? 0.8 : 0.4,
+        // Add input/output relationship info
+        inputOutputRelationship: this.findInputOutputRelationship(sourceNode, targetNode)
+      };
+    }).filter(link => link !== null);
+
+    // Prepare for flow visualization
+    this.prepareFlowData();
   }
 
   createVisualization() {
@@ -514,12 +574,7 @@ class ProcessNetworkVisualizer {
       .enter()
       .append('circle')
       .attr('class', d => `network-node node-${d.category} level-${d.recommendedLevel}`)
-      .attr('r', d => {
-        // Scale node size based on importance/complexity
-        const baseSize = 20;
-        const complexityMultiplier = d.complexity ? d.complexity / 10 : 1;
-        return baseSize * complexityMultiplier;
-      })
+      .attr('r', 20)
       .attr('fill', d => this.getNodeColor(d))
       .attr('stroke', '#fff')
       .attr('stroke-width', 2)
@@ -542,11 +597,7 @@ class ProcessNetworkVisualizer {
       .append('text')
       .attr('class', 'network-text')
       .attr('text-anchor', 'middle')
-      .attr('dy', d => {
-        const baseOffset = 35;
-        const sizeOffset = (d.complexity ? d.complexity / 10 : 1) * 5;
-        return baseOffset + sizeOffset;
-      })
+      .attr('dy', 35)
       .attr('font-size', '12px')
       .attr('font-weight', '600')
       .attr('fill', '#2c3e50')
@@ -567,20 +618,13 @@ class ProcessNetworkVisualizer {
       .append('text')
       .attr('class', 'node-metric')
       .attr('text-anchor', 'middle')
-      .attr('dy', d => {
-        const baseOffset = -25;
-        const sizeOffset = (d.complexity ? d.complexity / 10 : 1) * 5;
-        return baseOffset - sizeOffset;
-      })
+      .attr('dy', -25)
       .attr('font-size', '10px')
       .attr('fill', '#6c757d')
       .attr('pointer-events', 'none')
       .text(d => {
         if (!this.currentFilters.showMetrics) return '';
-        const metrics = [];
-        if (d.effort) metrics.push(`Effort: ${d.effort}`);
-        if (d.complexity) metrics.push(`Complexity: ${d.complexity}`);
-        return metrics.join(' | ');
+        return `Connections: ${this.getConnectionCount(d)}`;
       });
 
     // Create tooltip
@@ -598,11 +642,12 @@ class ProcessNetworkVisualizer {
 
   getNodeColor(node) {
     const colors = {
-      basic: '#28a745',
-      standard: '#ffc107',
-      comprehensive: '#dc3545',
+      technicalManagement: '#4e79a7',
+      technical: '#f28e2c',
+      agreement: '#e15759',
+      project: '#76b7b2'
     };
-    return colors[node.recommendedLevel] || '#6c757d';
+    return colors[node.category] || '#999';
   }
 
   getNodeLabel(node) {
@@ -612,6 +657,24 @@ class ProcessNetworkVisualizer {
       return `${node.name.substring(0, maxLength - 3) }...`;
     }
     return node.name;
+  }
+
+  getNodeRadius(node) {
+    return 12;
+  }
+
+  getLinkStrokeWidth(link) {
+    if (link.inputOutputRelationship) {
+      return Math.min(3 + link.inputOutputRelationship.count * 0.5, 6);
+    }
+    return 2;
+  }
+
+  getLinkMarker(link) {
+    if (link.inputOutputRelationship) {
+      return 'url(#arrowhead)';
+    }
+    return null;
   }
 
   updateVisualization() {
@@ -652,6 +715,163 @@ class ProcessNetworkVisualizer {
     this.simulation.alpha(0.3).restart();
   }
 
+  // Helper methods for input/output processing
+  getAllInputs(process) {
+    const inputs = new Set();
+    Object.values(process.tailoringLevels || {}).forEach(level => {
+      (level.inputs || []).forEach(input => inputs.add(input));
+    });
+    return Array.from(inputs);
+  }
+
+  getAllOutputs(process) {
+    const outputs = new Set();
+    Object.values(process.tailoringLevels || {}).forEach(level => {
+      (level.outputs || []).forEach(output => outputs.add(output));
+    });
+    return Array.from(outputs);
+  }
+
+  findInputOutputRelationship(sourceNode, targetNode) {
+    const commonOutputsInputs = sourceNode.outputs.filter(output => 
+      targetNode.inputs.includes(output)
+    );
+    
+    return commonOutputsInputs.length > 0 ? {
+      items: commonOutputsInputs,
+      count: commonOutputsInputs.length
+    } : null;
+  }
+
+  // Flow visualization methods
+  prepareFlowData() {
+    this.flowData = {
+      inputFlows: new Map(),
+      outputFlows: new Map(),
+      processFlows: new Map()
+    };
+
+    // Build flow relationships
+    this.nodes.forEach(node => {
+      this.flowData.inputFlows.set(node.id, new Set());
+      this.flowData.outputFlows.set(node.id, new Set());
+      this.flowData.processFlows.set(node.id, new Set());
+    });
+
+    this.links.forEach(link => {
+      if (link.inputOutputRelationship) {
+        this.flowData.inputFlows.get(link.target.id).add({
+          source: link.source.id,
+          items: link.inputOutputRelationship.items
+        });
+        this.flowData.outputFlows.get(link.source.id).add({
+          target: link.target.id,
+          items: link.inputOutputRelationship.items
+        });
+        this.flowData.processFlows.get(link.source.id).add(link.target.id);
+        this.flowData.processFlows.get(link.target.id).add(link.source.id);
+      }
+    });
+  }
+
+  setupFlowVisualization() {
+    // Flow visualization setup - simplified to avoid non-functional code
+    this.flowContainer = d3.select('#process-network svg g')
+      .append('g')
+      .attr('class', 'flow-visualization')
+      .style('opacity', 0);
+  }
+
+  showProcessFlow(process) {
+    const processId = process.id;
+    const flows = [];
+
+    // Get input flows
+    const inputFlows = Array.from(this.flowData.inputFlows.get(processId) || []);
+    inputFlows.forEach(flow => {
+      flows.push({
+        type: 'input',
+        from: flow.source,
+        to: processId,
+        items: flow.items,
+        color: '#4CAF50'
+      });
+    });
+
+    // Get output flows
+    const outputFlows = Array.from(this.flowData.outputFlows.get(processId) || []);
+    outputFlows.forEach(flow => {
+      flows.push({
+        type: 'output',
+        from: processId,
+        to: flow.target,
+        items: flow.items,
+        color: '#FF5722'
+      });
+    });
+
+    // Update flow visualization
+    this.updateFlowVisualization(flows);
+  }
+
+  updateFlowVisualization(flows = []) {
+    if (!flows.length) {
+      this.flowContainer.style('opacity', 0);
+      return;
+    }
+
+    this.flowContainer.style('opacity', 1);
+
+    const flowPaths = this.flowPaths.data(flows, d => `${d.from}-${d.to}-${d.type}`);
+    
+    flowPaths.enter()
+      .append('path')
+      .attr('class', 'flow-path')
+      .attr('fill', 'none')
+      .attr('stroke', d => d.color)
+      .attr('stroke-width', 2)
+      .attr('stroke-dasharray', d => d.type === 'input' ? '5,5' : null)
+      .attr('opacity', 0.7)
+      .merge(flowPaths)
+      .attr('d', d => {
+        const fromNode = this.nodes.find(n => n.id === d.from);
+        const toNode = this.nodes.find(n => n.id === d.to);
+        if (!fromNode || !toNode) return '';
+        
+        return `M${fromNode.x},${fromNode.y} L${toNode.x},${toNode.y}`;
+      });
+
+    flowPaths.exit().remove();
+
+    const flowLabels = this.flowLabels.data(flows, d => `${d.from}-${d.to}-${d.type}`);
+    
+    flowLabels.enter()
+      .append('text')
+      .attr('class', 'flow-label')
+      .attr('font-size', '8px')
+      .attr('fill', d => d.color)
+      .attr('text-anchor', 'middle')
+      .merge(flowLabels)
+      .attr('x', d => {
+        const fromNode = this.nodes.find(n => n.id === d.from);
+        const toNode = this.nodes.find(n => n.id === d.to);
+        return (fromNode.x + toNode.x) / 2;
+      })
+      .attr('y', d => {
+        const fromNode = this.nodes.find(n => n.id === d.from);
+        const toNode = this.nodes.find(n => n.id === d.to);
+        return (fromNode.y + toNode.y) / 2 - 10;
+      })
+      .text(d => d.items.slice(0, 2).join(', ') + (d.items.length > 2 ? '...' : ''));
+
+    flowLabels.exit().remove();
+  }
+
+  hideProcessFlow() {
+    this.flowContainer.style('opacity', 0);
+  }
+
+  // Enhanced filtering and interaction methods
   isNodeVisible(node) {
     // Category filter
     if (!this.currentFilters.categories.has(node.category)) {
@@ -667,6 +887,19 @@ class ProcessNetworkVisualizer {
     if (this.currentFilters.searchTerm &&
             !node.name.toLowerCase().includes(this.currentFilters.searchTerm)) {
       return false;
+    }
+
+    // Check focus process filter
+    const focusProcess = document.getElementById('focus-process-select');
+    if (focusProcess && focusProcess.value) {
+      const focusedId = focusProcess.value;
+      if (node.id !== focusedId) {
+        // Check if this node is connected to focused process
+        const connectedProcesses = this.flowData.processFlows.get(focusedId) || new Set();
+        if (!connectedProcesses.has(node.id)) {
+          return false;
+        }
+      }
     }
 
     return true;
@@ -689,6 +922,12 @@ class ProcessNetworkVisualizer {
 
     if (this.labelElements) {
       this.labelElements
+        .attr('x', d => d.x)
+        .attr('y', d => d.y);
+    }
+
+    if (this.metricElements) {
+      this.metricElements
         .attr('x', d => d.x)
         .attr('y', d => d.y);
     }
@@ -715,8 +954,11 @@ class ProcessNetworkVisualizer {
     // Highlight connected nodes and links
     this.highlightConnectedElements(d);
 
-    // Show enhanced tooltip
+    // Show enhanced tooltip with input/output info
     this.showEnhancedTooltip(event, d);
+
+    // Show flow visualization for this process
+    this.showProcessFlow(d);
 
     // Add hover effect
     d3.select(event.currentTarget)
@@ -731,6 +973,9 @@ class ProcessNetworkVisualizer {
 
     // Hide tooltip
     this.hideTooltip();
+
+    // Hide flow visualization
+    this.hideProcessFlow();
 
     // Remove hover effect
     d3.select(event.currentTarget)
@@ -766,10 +1011,9 @@ class ProcessNetworkVisualizer {
                 <h4>${d.name}</h4>
                 <p><strong>Category:</strong> ${d.category}</p>
                 <p><strong>Recommended Level:</strong> ${d.recommendedLevel}</p>
-                ${d.effort ? `<p><strong>Effort:</strong> ${d.effort}/10</p>` : ''}
-                ${d.complexity ? `<p><strong>Complexity:</strong> ${d.complexity}/10</p>` : ''}
-                ${d.confidence ? `<p><strong>Confidence:</strong> ${d.confidence}%</p>` : ''}
                 <p><strong>Connections:</strong> ${this.getConnectionCount(d)}</p>
+                <p><strong>Inputs:</strong> ${d.inputs?.length || 0}</p>
+                <p><strong>Outputs:</strong> ${d.outputs?.length || 0}</p>
             </div>
         `;
 
@@ -839,7 +1083,7 @@ class ProcessNetworkVisualizer {
       .html(`
                 <strong>${d.name}</strong><br/>
                 Level: <span class="level-badge level-${d.recommendedLevel}">${d.recommendedLevel}</span><br/>
-                Effort: ${d.effort}/5<br/>
+                Connections: ${this.getConnectionCount(d)}<br/>
                 Confidence: ${Math.round(d.confidence * 100)}%
             `)
       .style('left', `${event.pageX + 10 }px`)
