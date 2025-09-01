@@ -1,110 +1,1257 @@
 {
   "dependencies": [
-    {"source": "project_assessment_control", "sourceLevel": "basic", "target": "project_planning", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "project_assessment_control", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "project_assessment_control", "sourceLevel": "standard", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "project_assessment_control", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "project_assessment_control", "sourceLevel": "comprehensive", "target": "configuration_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "project_assessment_control", "sourceLevel": "comprehensive", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "decision_management", "sourceLevel": "basic", "target": "risk_management", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "decision_management", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "decision_management", "sourceLevel": "standard", "target": "project_assessment_control", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "decision_management", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "decision_management", "sourceLevel": "comprehensive", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "risk_management", "sourceLevel": "basic", "target": "decision_management", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "risk_management", "sourceLevel": "standard", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "risk_management", "sourceLevel": "standard", "target": "project_assessment_control", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "risk_management", "sourceLevel": "comprehensive", "target": "configuration_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "risk_management", "sourceLevel": "comprehensive", "target": "system_analysis", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "configuration_management", "sourceLevel": "basic", "target": "information_management", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "configuration_management", "sourceLevel": "standard", "target": "project_assessment_control", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "configuration_management", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "configuration_management", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "configuration_management", "sourceLevel": "comprehensive", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "information_management", "sourceLevel": "basic", "target": "configuration_management", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "information_management", "sourceLevel": "standard", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "information_management", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "information_management", "sourceLevel": "comprehensive", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "information_management", "sourceLevel": "comprehensive", "target": "project_planning", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "measurement", "sourceLevel": "basic", "target": "information_management", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "measurement", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "measurement", "sourceLevel": "standard", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "measurement", "sourceLevel": "comprehensive", "target": "project_planning", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "measurement", "sourceLevel": "comprehensive", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "quality_assurance", "sourceLevel": "basic", "target": "risk_management", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "quality_assurance", "sourceLevel": "standard", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "quality_assurance", "sourceLevel": "standard", "target": "measurement", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "quality_assurance", "sourceLevel": "comprehensive", "target": "measurement", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "quality_assurance", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "business_mission_analysis", "sourceLevel": "basic", "target": "portfolio_management", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "business_mission_analysis", "sourceLevel": "standard", "target": "decision_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "business_mission_analysis", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "business_mission_analysis", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "business_mission_analysis", "sourceLevel": "comprehensive", "target": "project_planning", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "stakeholder_needs_requirements", "sourceLevel": "basic", "target": "business_mission_analysis", "targetLevel": "basic", "type": "vertical"},
-    {"source": "stakeholder_needs_requirements", "sourceLevel": "standard", "target": "system_requirements_definition", "targetLevel": "standard", "type": "vertical"},
-    {"source": "stakeholder_needs_requirements", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "stakeholder_needs_requirements", "sourceLevel": "comprehensive", "target": "architecture_definition", "targetLevel": "standard", "type": "vertical"},
-    {"source": "stakeholder_needs_requirements", "sourceLevel": "comprehensive", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "system_requirements_definition", "sourceLevel": "basic", "target": "stakeholder_needs_requirements", "targetLevel": "basic", "type": "vertical"},
-    {"source": "system_requirements_definition", "sourceLevel": "standard", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "system_requirements_definition", "sourceLevel": "standard", "target": "verification", "targetLevel": "standard", "type": "vertical"},
-    {"source": "system_requirements_definition", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "system_requirements_definition", "sourceLevel": "comprehensive", "target": "system_analysis", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "architecture_definition", "sourceLevel": "basic", "target": "system_requirements_definition", "targetLevel": "basic", "type": "vertical"},
-    {"source": "architecture_definition", "sourceLevel": "standard", "target": "system_analysis", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "architecture_definition", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "architecture_definition", "sourceLevel": "comprehensive", "target": "verification", "targetLevel": "comprehensive", "type": "vertical"},
-    {"source": "architecture_definition", "sourceLevel": "comprehensive", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "design_definition", "sourceLevel": "basic", "target": "architecture_definition", "targetLevel": "basic", "type": "vertical"},
-    {"source": "design_definition", "sourceLevel": "standard", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "design_definition", "sourceLevel": "standard", "target": "verification", "targetLevel": "standard", "type": "vertical"},
-    {"source": "design_definition", "sourceLevel": "comprehensive", "target": "system_analysis", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "design_definition", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "system_analysis", "sourceLevel": "basic", "target": "architecture_definition", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "system_analysis", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "system_analysis", "sourceLevel": "standard", "target": "measurement", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "system_analysis", "sourceLevel": "comprehensive", "target": "verification", "targetLevel": "comprehensive", "type": "vertical"},
-    {"source": "system_analysis", "sourceLevel": "comprehensive", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "implementation", "sourceLevel": "basic", "target": "design_definition", "targetLevel": "basic", "type": "vertical"},
-    {"source": "implementation", "sourceLevel": "standard", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "implementation", "sourceLevel": "standard", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "implementation", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "implementation", "sourceLevel": "comprehensive", "target": "project_assessment_control", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "integration", "sourceLevel": "basic", "target": "implementation", "targetLevel": "basic", "type": "vertical"},
-    {"source": "integration", "sourceLevel": "standard", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "integration", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "integration", "sourceLevel": "comprehensive", "target": "verification", "targetLevel": "comprehensive", "type": "vertical"},
-    {"source": "integration", "sourceLevel": "comprehensive", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "verification", "sourceLevel": "basic", "target": "integration", "targetLevel": "basic", "type": "vertical"},
-    {"source": "verification", "sourceLevel": "standard", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "verification", "sourceLevel": "standard", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "verification", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "verification", "sourceLevel": "comprehensive", "target": "measurement", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "transition", "sourceLevel": "basic", "target": "verification", "targetLevel": "basic", "type": "vertical"},
-    {"source": "transition", "sourceLevel": "standard", "target": "validation", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "transition", "sourceLevel": "standard", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "transition", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "transition", "sourceLevel": "comprehensive", "target": "project_assessment_control", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "validation", "sourceLevel": "basic", "target": "verification", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "validation", "sourceLevel": "standard", "target": "system_requirements_definition", "targetLevel": "standard", "type": "vertical"},
-    {"source": "validation", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "validation", "sourceLevel": "comprehensive", "target": "verification", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "validation", "sourceLevel": "comprehensive", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "operation", "sourceLevel": "basic", "target": "maintenance", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "operation", "sourceLevel": "standard", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "operation", "sourceLevel": "standard", "target": "measurement", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "operation", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "operation", "sourceLevel": "comprehensive", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "maintenance", "sourceLevel": "basic", "target": "configuration_management", "targetLevel": "basic", "type": "horizontal"},
-    {"source": "maintenance", "sourceLevel": "standard", "target": "information_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "maintenance", "sourceLevel": "standard", "target": "risk_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "maintenance", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "maintenance", "sourceLevel": "comprehensive", "target": "measurement", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "disposal", "sourceLevel": "basic", "target": "operation", "targetLevel": "basic", "type": "vertical"},
-    {"source": "disposal", "sourceLevel": "standard", "target": "information_management", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "disposal", "sourceLevel": "standard", "target": "quality_assurance", "targetLevel": "standard", "type": "horizontal"},
-    {"source": "disposal", "sourceLevel": "comprehensive", "target": "risk_management", "targetLevel": "comprehensive", "type": "horizontal"},
-    {"source": "disposal", "sourceLevel": "comprehensive", "target": "configuration_management", "targetLevel": "standard", "type": "horizontal"}
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "basic",
+      "target": "project_planning",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "standard",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "comprehensive",
+      "target": "configuration_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "comprehensive",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "decision_management",
+      "sourceLevel": "basic",
+      "target": "risk_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "decision_management",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "decision_management",
+      "sourceLevel": "standard",
+      "target": "project_assessment_control",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "decision_management",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "decision_management",
+      "sourceLevel": "comprehensive",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "basic",
+      "target": "decision_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "standard",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "standard",
+      "target": "project_assessment_control",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "comprehensive",
+      "target": "configuration_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "comprehensive",
+      "target": "system_analysis",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "configuration_management",
+      "sourceLevel": "basic",
+      "target": "information_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "configuration_management",
+      "sourceLevel": "standard",
+      "target": "project_assessment_control",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "configuration_management",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "configuration_management",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "configuration_management",
+      "sourceLevel": "comprehensive",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "information_management",
+      "sourceLevel": "basic",
+      "target": "configuration_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "information_management",
+      "sourceLevel": "standard",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "information_management",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "information_management",
+      "sourceLevel": "comprehensive",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "information_management",
+      "sourceLevel": "comprehensive",
+      "target": "project_planning",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "measurement",
+      "sourceLevel": "basic",
+      "target": "information_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "measurement",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "measurement",
+      "sourceLevel": "standard",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "measurement",
+      "sourceLevel": "comprehensive",
+      "target": "project_planning",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "measurement",
+      "sourceLevel": "comprehensive",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_assurance",
+      "sourceLevel": "basic",
+      "target": "risk_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_assurance",
+      "sourceLevel": "standard",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_assurance",
+      "sourceLevel": "standard",
+      "target": "measurement",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_assurance",
+      "sourceLevel": "comprehensive",
+      "target": "measurement",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_assurance",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "business_mission_analysis",
+      "sourceLevel": "basic",
+      "target": "portfolio_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "business_mission_analysis",
+      "sourceLevel": "standard",
+      "target": "decision_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "business_mission_analysis",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "business_mission_analysis",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "business_mission_analysis",
+      "sourceLevel": "comprehensive",
+      "target": "project_planning",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "stakeholder_needs_requirements",
+      "sourceLevel": "basic",
+      "target": "business_mission_analysis",
+      "targetLevel": "basic",
+      "type": "vertical"
+    },
+    {
+      "source": "stakeholder_needs_requirements",
+      "sourceLevel": "standard",
+      "target": "system_requirements_definition",
+      "targetLevel": "standard",
+      "type": "vertical"
+    },
+    {
+      "source": "stakeholder_needs_requirements",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "stakeholder_needs_requirements",
+      "sourceLevel": "comprehensive",
+      "target": "architecture_definition",
+      "targetLevel": "standard",
+      "type": "vertical"
+    },
+    {
+      "source": "stakeholder_needs_requirements",
+      "sourceLevel": "comprehensive",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_requirements_definition",
+      "sourceLevel": "basic",
+      "target": "stakeholder_needs_requirements",
+      "targetLevel": "basic",
+      "type": "vertical"
+    },
+    {
+      "source": "system_requirements_definition",
+      "sourceLevel": "standard",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_requirements_definition",
+      "sourceLevel": "standard",
+      "target": "verification",
+      "targetLevel": "standard",
+      "type": "vertical"
+    },
+    {
+      "source": "system_requirements_definition",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_requirements_definition",
+      "sourceLevel": "comprehensive",
+      "target": "system_analysis",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "architecture_definition",
+      "sourceLevel": "basic",
+      "target": "system_requirements_definition",
+      "targetLevel": "basic",
+      "type": "vertical"
+    },
+    {
+      "source": "architecture_definition",
+      "sourceLevel": "standard",
+      "target": "system_analysis",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "architecture_definition",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "architecture_definition",
+      "sourceLevel": "comprehensive",
+      "target": "verification",
+      "targetLevel": "comprehensive",
+      "type": "vertical"
+    },
+    {
+      "source": "architecture_definition",
+      "sourceLevel": "comprehensive",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "design_definition",
+      "sourceLevel": "basic",
+      "target": "architecture_definition",
+      "targetLevel": "basic",
+      "type": "vertical"
+    },
+    {
+      "source": "design_definition",
+      "sourceLevel": "standard",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "design_definition",
+      "sourceLevel": "standard",
+      "target": "verification",
+      "targetLevel": "standard",
+      "type": "vertical"
+    },
+    {
+      "source": "design_definition",
+      "sourceLevel": "comprehensive",
+      "target": "system_analysis",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "design_definition",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_analysis",
+      "sourceLevel": "basic",
+      "target": "architecture_definition",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_analysis",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_analysis",
+      "sourceLevel": "standard",
+      "target": "measurement",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_analysis",
+      "sourceLevel": "comprehensive",
+      "target": "verification",
+      "targetLevel": "comprehensive",
+      "type": "vertical"
+    },
+    {
+      "source": "system_analysis",
+      "sourceLevel": "comprehensive",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "implementation",
+      "sourceLevel": "basic",
+      "target": "design_definition",
+      "targetLevel": "basic",
+      "type": "vertical"
+    },
+    {
+      "source": "implementation",
+      "sourceLevel": "standard",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "implementation",
+      "sourceLevel": "standard",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "implementation",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "implementation",
+      "sourceLevel": "comprehensive",
+      "target": "project_assessment_control",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "integration",
+      "sourceLevel": "basic",
+      "target": "implementation",
+      "targetLevel": "basic",
+      "type": "vertical"
+    },
+    {
+      "source": "integration",
+      "sourceLevel": "standard",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "integration",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "integration",
+      "sourceLevel": "comprehensive",
+      "target": "verification",
+      "targetLevel": "comprehensive",
+      "type": "vertical"
+    },
+    {
+      "source": "integration",
+      "sourceLevel": "comprehensive",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "verification",
+      "sourceLevel": "basic",
+      "target": "integration",
+      "targetLevel": "basic",
+      "type": "vertical"
+    },
+    {
+      "source": "verification",
+      "sourceLevel": "standard",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "verification",
+      "sourceLevel": "standard",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "verification",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "verification",
+      "sourceLevel": "comprehensive",
+      "target": "measurement",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "transition",
+      "sourceLevel": "basic",
+      "target": "verification",
+      "targetLevel": "basic",
+      "type": "vertical"
+    },
+    {
+      "source": "transition",
+      "sourceLevel": "standard",
+      "target": "validation",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "transition",
+      "sourceLevel": "standard",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "transition",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "transition",
+      "sourceLevel": "comprehensive",
+      "target": "project_assessment_control",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "validation",
+      "sourceLevel": "basic",
+      "target": "verification",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "validation",
+      "sourceLevel": "standard",
+      "target": "system_requirements_definition",
+      "targetLevel": "standard",
+      "type": "vertical"
+    },
+    {
+      "source": "validation",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "validation",
+      "sourceLevel": "comprehensive",
+      "target": "verification",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "validation",
+      "sourceLevel": "comprehensive",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "operation",
+      "sourceLevel": "basic",
+      "target": "maintenance",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "operation",
+      "sourceLevel": "standard",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "operation",
+      "sourceLevel": "standard",
+      "target": "measurement",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "operation",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "operation",
+      "sourceLevel": "comprehensive",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "maintenance",
+      "sourceLevel": "basic",
+      "target": "configuration_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "maintenance",
+      "sourceLevel": "standard",
+      "target": "information_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "maintenance",
+      "sourceLevel": "standard",
+      "target": "risk_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "maintenance",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "maintenance",
+      "sourceLevel": "comprehensive",
+      "target": "measurement",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "disposal",
+      "sourceLevel": "basic",
+      "target": "operation",
+      "targetLevel": "basic",
+      "type": "vertical"
+    },
+    {
+      "source": "disposal",
+      "sourceLevel": "standard",
+      "target": "information_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "disposal",
+      "sourceLevel": "standard",
+      "target": "quality_assurance",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "disposal",
+      "sourceLevel": "comprehensive",
+      "target": "risk_management",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "disposal",
+      "sourceLevel": "comprehensive",
+      "target": "configuration_management",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "stakeholder_needs_requirements",
+      "sourceLevel": "basic",
+      "target": "acquisition",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "portfolio_management",
+      "sourceLevel": "standard",
+      "target": "acquisition",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "comprehensive",
+      "target": "acquisition",
+      "targetLevel": "comprehensive",
+      "type": "horizontal"
+    },
+    {
+      "source": "acquisition",
+      "sourceLevel": "basic",
+      "target": "supply",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "standard",
+      "target": "supply",
+      "targetLevel": "standard",
+      "type": "horizontal"
+    },
+    {
+      "source": "portfolio_management",
+      "sourceLevel": "basic",
+      "target": "lifecycle_model_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "basic",
+      "target": "lifecycle_model_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "human_resource_management",
+      "sourceLevel": "basic",
+      "target": "portfolio_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_planning",
+      "sourceLevel": "basic",
+      "target": "human_resource_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "knowledge_management",
+      "sourceLevel": "basic",
+      "target": "human_resource_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_planning",
+      "sourceLevel": "basic",
+      "target": "quality_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "lifecycle_model_management",
+      "sourceLevel": "basic",
+      "target": "quality_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "information_management",
+      "sourceLevel": "basic",
+      "target": "knowledge_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "basic",
+      "target": "knowledge_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "basic",
+      "target": "knowledge_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "portfolio_management",
+      "sourceLevel": "basic",
+      "target": "project_planning",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_requirements_definition",
+      "sourceLevel": "basic",
+      "target": "project_planning",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "stakeholder_needs_requirements",
+      "sourceLevel": "basic",
+      "target": "project_planning",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_planning",
+      "sourceLevel": "basic",
+      "target": "project_assessment_control",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "measurement",
+      "sourceLevel": "basic",
+      "target": "project_assessment_control",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_assurance",
+      "sourceLevel": "basic",
+      "target": "project_assessment_control",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_analysis",
+      "sourceLevel": "basic",
+      "target": "decision_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "basic",
+      "target": "decision_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_planning",
+      "sourceLevel": "basic",
+      "target": "risk_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "basic",
+      "target": "risk_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_planning",
+      "sourceLevel": "basic",
+      "target": "configuration_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_requirements_definition",
+      "sourceLevel": "basic",
+      "target": "configuration_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "knowledge_management",
+      "sourceLevel": "basic",
+      "target": "information_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "basic",
+      "target": "information_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "disposal",
+      "sourceLevel": "basic",
+      "target": "information_management",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_planning",
+      "sourceLevel": "basic",
+      "target": "measurement",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_management",
+      "sourceLevel": "basic",
+      "target": "measurement",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "basic",
+      "target": "measurement",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "lifecycle_model_management",
+      "sourceLevel": "basic",
+      "target": "quality_assurance",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "project_assessment_control",
+      "sourceLevel": "basic",
+      "target": "quality_assurance",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "basic",
+      "target": "quality_assurance",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "portfolio_management",
+      "sourceLevel": "basic",
+      "target": "business_mission_analysis",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_management",
+      "sourceLevel": "basic",
+      "target": "business_mission_analysis",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "business_mission_analysis",
+      "sourceLevel": "basic",
+      "target": "stakeholder_needs_requirements",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "validation",
+      "sourceLevel": "basic",
+      "target": "stakeholder_needs_requirements",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_assurance",
+      "sourceLevel": "basic",
+      "target": "stakeholder_needs_requirements",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "stakeholder_needs_requirements",
+      "sourceLevel": "basic",
+      "target": "system_requirements_definition",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_architecture_definition_process",
+      "sourceLevel": "basic",
+      "target": "system_requirements_definition",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "validation",
+      "sourceLevel": "basic",
+      "target": "system_requirements_definition",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_requirements_definition",
+      "sourceLevel": "basic",
+      "target": "system_architecture_definition_process",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_analysis",
+      "sourceLevel": "basic",
+      "target": "system_architecture_definition_process",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "verification",
+      "sourceLevel": "basic",
+      "target": "system_architecture_definition_process",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_architecture_definition_process",
+      "sourceLevel": "basic",
+      "target": "design_definition",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_analysis",
+      "sourceLevel": "basic",
+      "target": "design_definition",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "decision_management",
+      "sourceLevel": "basic",
+      "target": "system_analysis",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "measurement",
+      "sourceLevel": "basic",
+      "target": "system_analysis",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "verification",
+      "sourceLevel": "basic",
+      "target": "system_analysis",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "design_definition",
+      "sourceLevel": "basic",
+      "target": "implementation",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "configuration_management",
+      "sourceLevel": "basic",
+      "target": "implementation",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "implementation",
+      "sourceLevel": "basic",
+      "target": "integration",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "configuration_management",
+      "sourceLevel": "basic",
+      "target": "integration",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "integration",
+      "sourceLevel": "basic",
+      "target": "verification",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "system_requirements_definition",
+      "sourceLevel": "basic",
+      "target": "verification",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "basic",
+      "target": "verification",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "verification",
+      "sourceLevel": "basic",
+      "target": "transition",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "validation",
+      "sourceLevel": "basic",
+      "target": "transition",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "operation",
+      "sourceLevel": "basic",
+      "target": "transition",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "stakeholder_needs_requirements",
+      "sourceLevel": "basic",
+      "target": "validation",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "verification",
+      "sourceLevel": "basic",
+      "target": "validation",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_assurance",
+      "sourceLevel": "basic",
+      "target": "validation",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "transition",
+      "sourceLevel": "basic",
+      "target": "operation",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "maintenance",
+      "sourceLevel": "basic",
+      "target": "operation",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_management",
+      "sourceLevel": "basic",
+      "target": "operation",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "configuration_management",
+      "sourceLevel": "basic",
+      "target": "maintenance",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_assurance",
+      "sourceLevel": "basic",
+      "target": "maintenance",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "maintenance",
+      "sourceLevel": "basic",
+      "target": "disposal",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "quality_assurance",
+      "sourceLevel": "basic",
+      "target": "disposal",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    },
+    {
+      "source": "risk_management",
+      "sourceLevel": "basic",
+      "target": "disposal",
+      "targetLevel": "basic",
+      "type": "horizontal"
+    }
   ]
 }
