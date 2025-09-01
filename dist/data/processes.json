@@ -1,814 +1,2676 @@
-{
-  "processCategories": {
-    "technical_management": "Technical Management Processes",
-    "technical": "Technical Processes"
-  },
-  "tailoringLevels": ["basic", "standard", "comprehensive"],
-  "processes": [
-    {
-      "id": "project_planning",
-      "name": "Project Planning Process",
-      "category": "technical_management",
-      "description": "Establishes project scope, schedule, and resource planning",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Essential project scope, milestones, and resources with minimal formality",
-          "activities": ["Define objectives and scope", "Identify milestones", "Establish risk considerations"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Project charter", "High-level requirements", "Resource constraints"],
-          "outputs": ["Simple project plan", "Basic schedule", "Resource list"]
-        },
-        "standard": {
-          "description": "Formal baselines and dependencies for moderate complexity",
-          "activities": ["All Basic", "Develop WBS", "Establish baselines", "Integrate risk allocation"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Historical data", "Organizational policies"],
-          "outputs": ["All Basic deliverables", "Detailed WBS", "Risk register", "Earned value baseline"]
-        },
-        "comprehensive": {
-          "description": "Probabilistic analysis and complexity tracking for high-stakes systems",
-          "activities": ["All Standard", "Probabilistic analysis", "Optimize resource allocation", "Complexity monitoring"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Environmental factors", "Simulation data"],
-          "outputs": ["All Standard deliverables", "Probabilistic analyses", "Metrics dashboard", "Complexity framework"]
-        }
+[
+  {
+    "id": "acquisition",
+    "name": "Acquisition Process",
+    "category": "agreement",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Simple procurement focused on essential needs fulfillment with minimal formalities and oversight, suitable for low-risk, low-complexity acquisitions.",
+        "activities": [
+          "Identify essential needs and potential suppliers informally",
+          "Conduct basic negotiations and establish simple agreement",
+          "Perform minimal acceptance checks upon delivery"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Project authorization and high-level needs",
+          "Basic stakeholder needs"
+        ],
+        "outputs": [
+          "Supplier engagement deliverables",
+          "Accepted procured items"
+        ],
+        "artifacts": [
+          "Basic SOW/requirements document",
+          "Simple contract/agreement",
+          "Acceptance checklist"
+        ]
       },
-      "constraints": [{"condition": "safety_criticality > 3", "requiredLevel": "standard", "rationale": "Safety-critical projects require formal planning"}]
-    },
-    {
-      "id": "project_assessment_control",
-      "name": "Project Assessment and Control Process", 
-      "category": "technical_management",
-      "description": "Monitors project progress and performance against plans",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Tracks progress against milestones with basic issue resolution",
-          "activities": ["Monitor milestones", "Log issues", "Apply corrections"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Project plan", "Milestone data", "Issue reports"],
-          "outputs": ["Status reports", "Issue log", "Change log"]
-        },
-        "standard": {
-          "description": "Earned value metrics and structured change control",
-          "activities": ["All Basic", "Earned value measurement", "Formal reviews", "Change management"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Earned value data", "Change requests"],
-          "outputs": ["All Basic deliverables", "Performance reports", "Issue database", "Change control docs"]
-        },
-        "comprehensive": {
-          "description": "Predictive modeling and dashboards for proactive control",
-          "activities": ["All Standard", "Trend analysis", "Impact analyses", "Stakeholder dashboards"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Trend metrics", "Environmental data"],
-          "outputs": ["All Standard deliverables", "Performance dashboard", "Trend reports", "Predictive models"]
-        }
-      }
-    },
-    {
-      "id": "decision_management",
-      "name": "Decision Management Process",
-      "category": "technical_management", 
-      "description": "Structured approach to making informed decisions",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Simple criteria for routine decisions",
-          "activities": ["Record decisions", "Analyze alternatives"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Decision triggers", "Stakeholder inputs"],
-          "outputs": ["Decision records", "Alternatives analysis"]
-        },
-        "standard": {
-          "description": "Structured matrices and stakeholder input",
-          "activities": ["All Basic", "Define criteria matrices", "Incorporate stakeholders", "Document rationale"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Criteria frameworks", "Analysis data"],
-          "outputs": ["All Basic deliverables", "Decision plan", "Criteria matrices", "Rationale records"]
-        },
-        "comprehensive": {
-          "description": "Governance, modeling, and uncertainty analysis",
-          "activities": ["All Standard", "Sensitivity analysis", "Establish governance", "Measure effectiveness"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Advanced models", "Risk data"],
-          "outputs": ["All Standard deliverables", "Governance framework", "Analyses", "Effectiveness metrics"]
-        }
-      }
-    },
-    {
-      "id": "risk_management",
-      "name": "Risk Management Process",
-      "category": "technical_management",
-      "description": "Identifies, analyzes, and mitigates risks",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Identifies and mitigates basic risks",
-          "activities": ["Identify risks", "Assess likelihood/impact", "Develop mitigation plans"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Project data", "Stakeholder concerns"],
-          "outputs": ["Risk register", "Basic reports"]
-        },
-        "standard": {
-          "description": "Structured assessment and RAMS for medium risks",
-          "activities": ["All Basic", "Formal assessment (RAMS)", "Response plans", "Periodic review"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Assessment matrices", "Historical data"],
-          "outputs": ["All Basic deliverables", "Risk management plan", "Detailed register", "Response plans"]
-        },
-        "comprehensive": {
-          "description": "Simulations and dashboards for high-complexity prediction",
-          "activities": ["All Standard", "Probabilistic modeling", "Leading indicators", "Evaluate effectiveness"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Simulation tools", "Integrated databases"],
-          "outputs": ["All Standard deliverables", "Framework docs", "Simulations", "Risk dashboards"]
-        }
+      "standard": {
+        "description": "Structured procurement emphasizing formal supplier evaluation, contract management, and performance monitoring, aligned with medium-risk projects requiring accountability.",
+        "activities": [
+          "Develop formal RFP based on defined criteria",
+          "Evaluate suppliers using structured methods (e.g., weighted scoring)",
+          "Manage contract execution with milestone reviews",
+          "Conduct formal acceptance testing and verification"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "System requirements baseline",
+          "Risk assessment data",
+          "Portfolio alignment criteria"
+        ],
+        "outputs": [
+          "Evaluated supplier contracts",
+          "Verified procurement baselines"
+        ],
+        "artifacts": [
+          "Comprehensive RFP package",
+          "Supplier evaluation matrix",
+          "Contract with milestones and performance clauses",
+          "Acceptance test procedures and results"
+        ]
       },
-      "constraints": [{"condition": "safety_criticality > 2", "requiredLevel": "standard", "rationale": "Safety-critical projects require structured risk management"}]
-    },
-    {
-      "id": "configuration_management",
-      "name": "Configuration Management Process",
-      "category": "technical_management",
-      "description": "Controls and maintains system configurations throughout the lifecycle",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic version control for essential items in simple projects",
-          "activities": ["Establish baselines", "Track changes simply"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["System items", "Basic change requests"],
-          "outputs": ["Basic baselines", "Change logs"]
-        },
-        "standard": {
-          "description": "Formal controls and impact assessments for structured change management",
-          "activities": ["All Basic", "Manage configurations formally", "Assess change impacts"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Formal requests", "Impact data"],
-          "outputs": ["All Basic deliverables", "Configuration plans", "Impact assessment reports"]
-        },
-        "comprehensive": {
-          "description": "Automation and full lifecycle traceability for complex systems",
-          "activities": ["All Standard", "Automate tracking and audits", "Ensure end-to-end traceability"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Automated tools", "Full lifecycle data"],
-          "outputs": ["All Standard deliverables", "Automated systems/reports", "Traceability matrices"]
-        }
-      }
-    },
-    {
-      "id": "information_management",
-      "name": "Information Management Process",
-      "category": "technical_management",
-      "description": "Manages information and knowledge throughout the project lifecycle",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Collects and distributes basic information for minimal needs",
-          "activities": ["Collect and store data", "Distribute as required"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Project data sources"],
-          "outputs": ["Simple repositories", "Distribution logs"]
-        },
-        "standard": {
-          "description": "Protection and accessibility controls for reliable sharing",
-          "activities": ["All Basic", "Protect information", "Ensure accessibility"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Security requirements"],
-          "outputs": ["All Basic deliverables", "Information management plans", "Access control docs"]
-        },
-        "comprehensive": {
-          "description": "Transformation strategies and effectiveness measurement",
-          "activities": ["All Standard", "Transform data for reuse", "Archive and measure effectiveness"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Strategic needs", "Transformation tools"],
-          "outputs": ["All Standard deliverables", "Comprehensive strategies", "Archiving plans"]
-        }
-      }
-    },
-    {
-      "id": "measurement",
-      "name": "Measurement Process",
-      "category": "technical_management",
-      "description": "Measures project and process performance to support decision making",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Measures key indicators simply for basic performance tracking",
-          "activities": ["Define basic measures", "Collect and store data"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Performance needs", "Basic data"],
-          "outputs": ["Basic measurement plans", "Simple reports"]
-        },
-        "standard": {
-          "description": "Structured analysis and reporting for informed insights",
-          "activities": ["All Basic", "Analyze measures", "Report results to stakeholders"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Data sets from processes"],
-          "outputs": ["All Basic deliverables", "Measurement databases", "Analysis reports"]
-        },
-        "comprehensive": {
-          "description": "Integrated frameworks and communication for continuous improvement",
-          "activities": ["All Standard", "Communicate insights organization-wide", "Improve measurement processes"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Integrated enterprise data", "Feedback loops"],
-          "outputs": ["All Standard deliverables", "Comprehensive frameworks", "Improvement plans"]
-        }
-      }
-    },
-    {
-      "id": "quality_assurance",
-      "name": "Quality Assurance Process",
-      "category": "technical_management",
-      "description": "Ensures adherence to processes and standards",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic process adherence with minimal evaluations",
-          "activities": ["Evaluate key processes", "Report nonconformances"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Process descriptions", "Basic outputs"],
-          "outputs": ["Evaluation reports", "Issue records"]
-        },
-        "standard": {
-          "description": "Structured audits and improvements for consistent quality",
-          "activities": ["All Basic", "Conduct formal audits", "Implement corrective improvements"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Audit criteria", "Nonconformance data"],
-          "outputs": ["All Basic deliverables", "Assurance plans", "Audit reports"]
-        },
-        "comprehensive": {
-          "description": "Root cause analysis and monitoring for excellence in critical systems",
-          "activities": ["All Standard", "Perform root cause analysis", "Monitor and measure effectiveness"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Full system data", "Historical incidents"],
-          "outputs": ["All Standard deliverables", "Root cause analysis reports", "Effectiveness metrics"]
-        }
-      },
-      "constraints": [{"condition": "safety_criticality > 2", "requiredLevel": "standard", "rationale": "Safety-critical projects require formal quality assurance"}]
-    },
-    {
-      "id": "business_mission_analysis",
-      "name": "Business or Mission Analysis Process",
-      "category": "technical",
-      "description": "Analyzes business opportunities and defines mission requirements",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Analyzes basic opportunities and problems for initial scoping",
-          "activities": ["Define problem/opportunity space", "Identify high-level needs"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Enterprise strategies", "Initial stakeholder inputs"],
-          "outputs": ["Basic concept documents", "Stakeholder needs list"]
-        },
-        "standard": {
-          "description": "Concept development and feasibility assessments",
-          "activities": ["All Basic", "Develop alternative concepts", "Assess feasibility"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Constraints", "Market data"],
-          "outputs": ["All Basic deliverables", "Concept of operations", "Feasibility studies"]
-        },
-        "comprehensive": {
-          "description": "Scenario modeling and stakeholder validation for strategic alignment",
-          "activities": ["All Standard", "Model scenarios", "Validate with stakeholders"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Environmental factors", "Simulation tools"],
-          "outputs": ["All Standard deliverables", "Validated models", "Scenario reports"]
-        }
-      }
-    },
-    {
-      "id": "stakeholder_needs_requirements",
-      "name": "Stakeholder Needs and Requirements Definition Process",
-      "category": "technical",
-      "description": "Elicits and defines stakeholder needs and requirements",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Elicits and defines basic stakeholder needs",
-          "activities": ["Elicit needs from stakeholders", "Define initial requirements"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Stakeholder inputs", "Basic context"],
-          "outputs": ["Needs lists", "Basic requirements document"]
-        },
-        "standard": {
-          "description": "Prioritization and traceability for structured requirements",
-          "activities": ["All Basic", "Prioritize needs", "Trace to sources and validate"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Elicitation techniques data"],
-          "outputs": ["All Basic deliverables", "Traceable requirements", "Validation records"]
-        },
-        "comprehensive": {
-          "description": "Modeling and comprehensive validation for diverse stakeholders",
-          "activities": ["All Standard", "Model needs", "Conduct formal validation"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Diverse stakeholder data", "Modeling tools"],
-          "outputs": ["All Standard deliverables", "Modeled needs", "Comprehensive validation reports"]
-        }
-      }
-    },
-    {
-      "id": "system_requirements_definition",
-      "name": "System Requirements Definition Process",
-      "category": "technical",
-      "description": "Defines system requirements derived from stakeholder needs",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Defines informal system requirements with minimal documentation",
-          "activities": ["Derive requirements from needs", "Verify basic consistency"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Stakeholder requirements", "Basic architecture"],
-          "outputs": ["Basic requirements document"]
-        },
-        "standard": {
-          "description": "Formal traceability and change management",
-          "activities": ["All Basic", "Establish traceability", "Manage requirements changes"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Traceability tools", "Change requests"],
-          "outputs": ["All Basic deliverables", "Formal requirements set", "Traceability matrix"]
-        },
-        "comprehensive": {
-          "description": "Model-based approaches and full lifecycle traceability",
-          "activities": ["All Standard", "Use models for derivation", "Ensure lifecycle traceability"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "MBSE tools", "Lifecycle data"],
-          "outputs": ["All Standard deliverables", "Model-based requirements", "Lifecycle traceability"]
-        }
-      },
-      "constraints": [{"condition": "safety_criticality > 2", "requiredLevel": "standard", "rationale": "Safety-critical systems require formal requirements"}]
-    },
-    {
-      "id": "architecture_definition",
-      "name": "Architecture Definition Process",
-      "category": "technical",
-      "description": "Defines system architecture to satisfy requirements",
-      "tailoringLevels": {
-        "basic": {
-          "description": "High-level architectural concepts with minimal documentation",
-          "activities": ["Define architectural elements", "Identify interfaces"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["System requirements", "Basic constraints"],
-          "outputs": ["Architecture description", "Interface definitions"]
-        },
-        "standard": {
-          "description": "Formal architectural views and analysis",
-          "activities": ["All Basic", "Create architectural views", "Analyze architecture"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Stakeholder concerns", "Architecture principles"],
-          "outputs": ["All Basic deliverables", "Architecture views", "Analysis reports"]
-        },
-        "comprehensive": {
-          "description": "Model-based architecture with comprehensive evaluation",
-          "activities": ["All Standard", "Model architecture", "Evaluate alternatives"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "MBSE tools", "Evaluation criteria"],
-          "outputs": ["All Standard deliverables", "Architecture models", "Evaluation results"]
-        }
-      }
-    },
-    {
-      "id": "design_definition",
-      "name": "Design Definition Process",
-      "category": "technical",
-      "description": "Provides design solutions that satisfy requirements",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic design documentation with essential details",
-          "activities": ["Define design solutions", "Document key interfaces"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Architecture definition", "Requirements"],
-          "outputs": ["Design description", "Interface control documents"]
-        },
-        "standard": {
-          "description": "Detailed design with analysis and verification planning",
-          "activities": ["All Basic", "Analyze design alternatives", "Plan verification"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Design constraints", "Analysis tools"],
-          "outputs": ["All Basic deliverables", "Detailed design", "Verification plans"]
-        },
-        "comprehensive": {
-          "description": "Model-based design with optimization and trade studies",
-          "activities": ["All Standard", "Optimize design", "Conduct trade studies"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Optimization tools", "Trade study criteria"],
-          "outputs": ["All Standard deliverables", "Optimized design", "Trade study reports"]
-        }
-      }
-    },
-    {
-      "id": "system_analysis",
-      "name": "System Analysis Process",
-      "category": "technical",
-      "description": "Provides analytical evidence to support decision making",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic analysis to support key decisions",
-          "activities": ["Identify analysis needs", "Perform basic analysis"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["System data", "Analysis requirements"],
-          "outputs": ["Analysis results", "Basic reports"]
-        },
-        "standard": {
-          "description": "Structured analysis with modeling and simulation",
-          "activities": ["All Basic", "Model system behavior", "Simulate scenarios"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Models", "Simulation tools"],
-          "outputs": ["All Basic deliverables", "Models", "Simulation results"]
-        },
-        "comprehensive": {
-          "description": "Advanced analytics with uncertainty quantification",
-          "activities": ["All Standard", "Quantify uncertainties", "Optimize using analytics"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Advanced analytics tools", "Uncertainty data"],
-          "outputs": ["All Standard deliverables", "Uncertainty analysis", "Optimization results"]
-        }
-      }
-    },
-    {
-      "id": "implementation",
-      "name": "Implementation Process",
-      "category": "technical",
-      "description": "Realizes system elements according to design",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic implementation with minimal oversight",
-          "activities": ["Implement system elements", "Document as-built configuration"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Design definition", "Implementation procedures"],
-          "outputs": ["System elements", "Implementation records"]
-        },
-        "standard": {
-          "description": "Controlled implementation with quality checks",
-          "activities": ["All Basic", "Perform quality checks", "Manage implementation"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Quality procedures", "Management plans"],
-          "outputs": ["All Basic deliverables", "Quality records", "Progress reports"]
-        },
-        "comprehensive": {
-          "description": "Advanced implementation with continuous monitoring",
-          "activities": ["All Standard", "Monitor implementation", "Optimize processes"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Monitoring tools", "Optimization criteria"],
-          "outputs": ["All Standard deliverables", "Monitoring reports", "Process improvements"]
-        }
-      }
-    },
-    {
-      "id": "integration",
-      "name": "Integration Process",
-      "category": "technical",
-      "description": "Combines system elements to create a complete system",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic integration with minimal testing",
-          "activities": ["Integrate system elements", "Perform basic integration tests"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["System elements", "Integration procedures"],
-          "outputs": ["Integrated system", "Integration records"]
-        },
-        "standard": {
-          "description": "Structured integration with comprehensive testing",
-          "activities": ["All Basic", "Execute integration strategy", "Manage interfaces"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Integration strategy", "Interface specifications"],
-          "outputs": ["All Basic deliverables", "Integration reports", "Interface test results"]
-        },
-        "comprehensive": {
-          "description": "Advanced integration with continuous monitoring and optimization",
-          "activities": ["All Standard", "Monitor integration", "Optimize integration processes"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Monitoring systems", "Performance data"],
-          "outputs": ["All Standard deliverables", "Performance reports", "Optimization recommendations"]
-        }
-      }
-    },
-    {
-      "id": "verification",
-      "name": "Verification Process",
-      "category": "technical",
-      "description": "Confirms system meets specified requirements",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic verification with essential tests",
-          "activities": ["Plan verification", "Execute basic tests"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Requirements", "System elements"],
-          "outputs": ["Verification plans", "Test results"]
-        },
-        "standard": {
-          "description": "Comprehensive verification with formal procedures",
-          "activities": ["All Basic", "Execute formal verification", "Document evidence"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Verification procedures", "Test facilities"],
-          "outputs": ["All Basic deliverables", "Verification reports", "Evidence packages"]
-        },
-        "comprehensive": {
-          "description": "Advanced verification with statistical analysis and modeling",
-          "activities": ["All Standard", "Perform statistical analysis", "Model verification results"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Statistical tools", "Modeling capabilities"],
-          "outputs": ["All Standard deliverables", "Statistical analysis", "Verification models"]
-        }
-      },
-      "constraints": [{"condition": "safety_criticality > 2", "requiredLevel": "standard", "rationale": "Safety-critical systems require formal verification"}]
-    },
-    {
-      "id": "transition",
-      "name": "Transition Process",
-      "category": "technical",
-      "description": "Establishes capability to provide services in operational environment",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic transition with minimal support",
-          "activities": ["Plan transition", "Transfer system to users"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Verified system", "Transition requirements"],
-          "outputs": ["Transition plan", "Operational system"]
-        },
-        "standard": {
-          "description": "Managed transition with training and support",
-          "activities": ["All Basic", "Train users", "Provide transition support"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Training materials", "Support procedures"],
-          "outputs": ["All Basic deliverables", "Trained users", "Support documentation"]
-        },
-        "comprehensive": {
-          "description": "Strategic transition with performance monitoring",
-          "activities": ["All Standard", "Monitor transition performance", "Optimize transition"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Performance metrics", "Feedback systems"],
-          "outputs": ["All Standard deliverables", "Performance reports", "Optimization plans"]
-        }
-      }
-    },
-    {
-      "id": "validation",
-      "name": "Validation Process",
-      "category": "technical",
-      "description": "Provides evidence that system accomplishes its intended use",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic validation with stakeholder feedback",
-          "activities": ["Plan validation", "Collect stakeholder feedback"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Stakeholder needs", "System in operation"],
-          "outputs": ["Validation plan", "Stakeholder feedback"]
-        },
-        "standard": {
-          "description": "Formal validation with structured evaluation",
-          "activities": ["All Basic", "Execute validation procedures", "Analyze results"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Validation procedures", "Evaluation criteria"],
-          "outputs": ["All Basic deliverables", "Validation reports", "Analysis results"]
-        },
-        "comprehensive": {
-          "description": "Comprehensive validation with long-term effectiveness assessment",
-          "activities": ["All Standard", "Assess long-term effectiveness", "Monitor operational performance"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Long-term data", "Performance monitoring"],
-          "outputs": ["All Standard deliverables", "Effectiveness assessment", "Performance trends"]
-        }
-      }
-    },
-    {
-      "id": "operation",
-      "name": "Operation Process",
-      "category": "technical",
-      "description": "Uses system to deliver intended services",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic operation with minimal monitoring",
-          "activities": ["Operate system", "Monitor basic performance"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Operational system", "Operating procedures"],
-          "outputs": ["Services delivered", "Performance logs"]
-        },
-        "standard": {
-          "description": "Managed operation with performance optimization",
-          "activities": ["All Basic", "Optimize performance", "Manage operational issues"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Performance data", "Issue management procedures"],
-          "outputs": ["All Basic deliverables", "Optimized operations", "Issue resolution records"]
-        },
-        "comprehensive": {
-          "description": "Strategic operation with continuous improvement",
-          "activities": ["All Standard", "Implement continuous improvement", "Predict future needs"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Improvement data", "Predictive analytics"],
-          "outputs": ["All Standard deliverables", "Improvement plans", "Future requirements"]
-        }
-      }
-    },
-    {
-      "id": "maintenance",
-      "name": "Maintenance Process",
-      "category": "technical",
-      "description": "Sustains system capability during its operational life",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic maintenance with reactive repairs",
-          "activities": ["Perform corrective maintenance", "Log maintenance actions"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Maintenance requirements", "Failure reports"],
-          "outputs": ["Maintained system", "Maintenance records"]
-        },
-        "standard": {
-          "description": "Planned maintenance with preventive actions",
-          "activities": ["All Basic", "Perform preventive maintenance", "Manage maintenance resources"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Maintenance schedules", "Resource plans"],
-          "outputs": ["All Basic deliverables", "Maintenance schedules", "Resource utilization reports"]
-        },
-        "comprehensive": {
-          "description": "Predictive maintenance with condition monitoring",
-          "activities": ["All Standard", "Monitor system condition", "Predict maintenance needs"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Condition monitoring data", "Predictive models"],
-          "outputs": ["All Standard deliverables", "Condition reports", "Predictive maintenance plans"]
-        }
-      }
-    },
-    {
-      "id": "disposal",
-      "name": "Disposal Process",
-      "category": "technical",
-      "description": "Ends system operation and removes system from service",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic disposal with essential decommissioning",
-          "activities": ["Plan disposal", "Decommission system"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Disposal requirements", "System documentation"],
-          "outputs": ["Disposal plan", "Decommissioned system"]
-        },
-        "standard": {
-          "description": "Managed disposal with environmental considerations",
-          "activities": ["All Basic", "Handle environmental aspects", "Archive information"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Environmental regulations", "Archive requirements"],
-          "outputs": ["All Basic deliverables", "Environmental compliance", "Archived information"]
-        },
-        "comprehensive": {
-          "description": "Strategic disposal with lessons learned and recycling",
-          "activities": ["All Standard", "Capture lessons learned", "Maximize resource recovery"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Knowledge management systems", "Recovery procedures"],
-          "outputs": ["All Standard deliverables", "Lessons learned", "Recovered resources"]
-        }
-      }
-    },
-    {
-      "id": "portfolio_management",
-      "name": "Portfolio Management Process",
-      "category": "technical_management",
-      "description": "Manages enterprise portfolio to achieve strategic objectives",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic portfolio oversight with simple prioritization",
-          "activities": ["Define portfolio scope", "Prioritize projects"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Strategic objectives", "Project proposals"],
-          "outputs": ["Portfolio definition", "Project priorities"]
-        },
-        "standard": {
-          "description": "Structured portfolio management with resource optimization",
-          "activities": ["All Basic", "Optimize resource allocation", "Monitor portfolio performance"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Resource constraints", "Performance data"],
-          "outputs": ["All Basic deliverables", "Resource allocation plans", "Performance reports"]
-        },
-        "comprehensive": {
-          "description": "Strategic portfolio management with advanced analytics",
-          "activities": ["All Standard", "Apply advanced analytics", "Predict portfolio outcomes"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Analytics tools", "Predictive models"],
-          "outputs": ["All Standard deliverables", "Analytics insights", "Outcome predictions"]
-        }
-      }
-    },
-    {
-      "id": "supply",
-      "name": "Supply Process",
-      "category": "agreement",
-      "description": "Provides products or services to an acquirer",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic supply with minimal contract management",
-          "activities": ["Respond to solicitation", "Establish agreement"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Solicitation documents", "Supplier capabilities"],
-          "outputs": ["Proposal", "Supply agreement"]
-        },
-        "standard": {
-          "description": "Managed supply with formal contract execution",
-          "activities": ["All Basic", "Execute agreement", "Deliver products/services"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Delivery requirements", "Quality standards"],
-          "outputs": ["All Basic deliverables", "Delivered products", "Delivery records"]
-        },
-        "comprehensive": {
-          "description": "Strategic supply with performance optimization",
-          "activities": ["All Standard", "Monitor performance", "Optimize supply chain"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Performance metrics", "Optimization tools"],
-          "outputs": ["All Standard deliverables", "Performance reports", "Supply chain improvements"]
-        }
-      }
-    },
-    {
-      "id": "acquisition",
-      "name": "Acquisition Process",
-      "category": "agreement",
-      "description": "Obtains products or services from suppliers",
-      "tailoringLevels": {
-        "basic": {
-          "description": "Basic acquisition with simple procurement",
-          "activities": ["Define acquisition needs", "Select supplier"],
-          "effort": 1,
-          "complexity": 1,
-          "inputs": ["Acquisition requirements", "Market analysis"],
-          "outputs": ["Acquisition strategy", "Selected supplier"]
-        },
-        "standard": {
-          "description": "Managed acquisition with formal procurement processes",
-          "activities": ["All Basic", "Manage supplier relationship", "Monitor delivery"],
-          "effort": 3,
-          "complexity": 3,
-          "inputs": ["All Basic inputs", "Contract management procedures", "Acceptance criteria"],
-          "outputs": ["All Basic deliverables", "Supplier agreements", "Acceptance records"]
-        },
-        "comprehensive": {
-          "description": "Strategic acquisition with supply chain optimization",
-          "activities": ["All Standard", "Optimize supply chain", "Manage supplier ecosystem"],
-          "effort": 5,
-          "complexity": 5,
-          "inputs": ["All Standard inputs", "Supply chain data", "Ecosystem strategies"],
-          "outputs": ["All Standard deliverables", "Supply chain optimization", "Ecosystem management plans"]
-        }
+      "comprehensive": {
+        "description": "Complex acquisition incorporating strategic planning, multi-faceted evaluations, and continuous risk management throughout the supplier lifecycle, ideal for high-stakes, high-complexity projects per ISO/IEC/IEEE 15288 and INCOSE best practices for transit/infrastructure where long-term supplier relationships impact system sustainment.",
+        "activities": [
+          "Create strategic acquisition roadmap with risk profiling",
+          "Perform multi-criteria supplier evaluations including capability audits",
+          "Implement SLAs and continuous performance monitoring",
+          "Apply adaptive, risk-based acceptance with contingency planning"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Comprehensive mission analysis",
+          "Advanced requirements models",
+          "Strategic portfolio directives",
+          "Enterprise risk framework"
+        ],
+        "outputs": [
+          "Full supplier lifecycle management documentation",
+          "Optimized procurement outcomes"
+        ],
+        "artifacts": [
+          "Strategic acquisition plan with risk profiles",
+          "Multi-criteria supplier evaluation reports including audits",
+          "Comprehensive contract with SLAs and governance",
+          "Supplier performance dashboards",
+          "Risk-based acceptance strategy documentation"
+        ]
       }
     }
-  ]
-}
+  },
+  {
+    "id": "supply",
+    "name": "Supply Process",
+    "category": "agreement",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic proposal and delivery execution with confirmation of receipt, appropriate for straightforward supplier roles in low-complexity scenarios.",
+        "activities": [
+          "Prepare essential proposal based on requirements",
+          "Execute basic delivery plan",
+          "Confirm receipt and basic compliance"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Acquisition requirements",
+          "Simple contract terms"
+        ],
+        "outputs": [
+          "Implemented deliverables",
+          "Delivery confirmations"
+        ],
+        "artifacts": [
+          "Basic proposal document",
+          "Delivery plan",
+          "Delivery confirmation records"
+        ]
+      },
+      "standard": {
+        "description": "Structured supply incorporating quality assurance in proposals and execution, suitable for projects requiring reliable delivery per industry standards like INCOSE guidelines for supply chain integration in infrastructure.",
+        "activities": [
+          "Develop integrated technical/management proposal",
+          "Implement QA processes during execution",
+          "Perform structured delivery and acceptance",
+          "Report performance metrics"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Verified requirements",
+          "Quality standards",
+          "Risk treatment plans"
+        ],
+        "outputs": [
+          "Verified deliverables",
+          "Performance reports"
+        ],
+        "artifacts": [
+          "Technical and management proposal package",
+          "Project execution plan with QA integration",
+          "Delivery and acceptance procedures/results",
+          "Performance reports"
+        ]
+      },
+      "comprehensive": {
+        "description": "Complex supply management with full lifecycle support, risk analysis, and performance optimization, aligned with advanced practices in ISO/IEC/IEEE 15288 for high-reliability systems like transit where supply disruptions can affect operations.",
+        "activities": [
+          "Conduct risk-analyzed proposal development",
+          "Execute detailed plans with embedded V&V",
+          "Provide lifecycle support including sustainment",
+          "Generate improvement metrics and feedback"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Formal requirements models",
+          "Advanced quality framework",
+          "Comprehensive risk models"
+        ],
+        "outputs": [
+          "Full system with support documentation",
+          "Optimized supply metrics"
+        ],
+        "artifacts": [
+          "Comprehensive proposal with risk analysis",
+          "Detailed execution and quality plans",
+          "Full V&V procedures and results",
+          "Lifecycle support documentation",
+          "Performance metrics and improvement plans"
+        ]
+      }
+    }
+  },
+  {
+    "id": "lifecycle_model_management",
+    "name": "Life Cycle Model Management Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Adoption of a standard lifecycle model with basic tailoring for immediate application, fitting small-scale projects with minimal customization needs.",
+        "activities": [
+          "Select appropriate standard model",
+          "Apply minimal tailoring as needed",
+          "Document model usage and check basic compliance"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Organizational policies and standards",
+          "Project registry data"
+        ],
+        "outputs": [
+          "Tailored process guidance",
+          "Compliance checklists"
+        ],
+        "artifacts": [
+          "Selected lifecycle model documentation",
+          "Basic tailoring guidelines",
+          "Process compliance checklist"
+        ]
+      },
+      "standard": {
+        "description": "Maintenance of organizational model library with formal tailoring and assessment, supporting medium-scale projects per INCOSE recommendations for process maturity.",
+        "activities": [
+          "Maintain and update model library",
+          "Implement formal tailoring procedures",
+          "Conduct process assessments",
+          "Provide training on models"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Portfolio strategy",
+          "Quality objectives",
+          "Risk thresholds"
+        ],
+        "outputs": [
+          "Process improvement reports",
+          "Training materials"
+        ],
+        "artifacts": [
+          "Organizational lifecycle model library",
+          "Formal tailoring procedures",
+          "Process assessment framework",
+          "Training materials"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive suite of lifecycle models with metrics-driven continuous improvement and certifications, essential for large infrastructure projects where lifecycle adaptability directly impacts cost and schedule per ISO/IEC/IEEE 15288.",
+        "activities": [
+          "Manage context-specific model variants",
+          "Apply advanced tailoring methodologies",
+          "Analyze process metrics for optimization",
+          "Drive continuous improvement",
+          "Pursue process certifications"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Strategic alignment framework",
+          "Advanced metrics",
+          "Improvement initiatives"
+        ],
+        "outputs": [
+          "Optimized processes",
+          "Certification frameworks"
+        ],
+        "artifacts": [
+          "Multiple lifecycle models for different contexts",
+          "Advanced tailoring methodology",
+          "Process metrics and analytics dashboard",
+          "Continuous improvement program",
+          "Certification framework documentation"
+        ]
+      }
+    }
+  },
+  {
+    "id": "infrastructure_management",
+    "name": "Infrastructure ManagementProcess",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Provision of basic infrastructure to meet immediate project needs with essential security, suitable for low-complexity environments.",
+        "activities": [
+          "Inventory available tools and facilities",
+          "Establish basic security measures",
+          "Provide simple usage guidelines"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Project resource needs",
+          "Basic security requirements"
+        ],
+        "outputs": [
+          "Available infrastructure",
+          "Tool guidelines"
+        ],
+        "artifacts": [
+          "Infrastructure inventory list",
+          "Basic security procedures",
+          "Tool usage guidelines"
+        ]
+      },
+      "standard": {
+        "description": "Structured management including tool qualification and performance monitoring, aligned with standard practices for medium-risk projects.",
+        "activities": [
+          "Develop infrastructure management plan",
+          "Qualify and deploy tools",
+          "Document and implement security controls",
+          "Monitor and report performance"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Detailed project plans",
+          "Quality standards",
+          "Risk profiles"
+        ],
+        "outputs": [
+          "Qualified infrastructure",
+          "Performance reports"
+        ],
+        "artifacts": [
+          "Infrastructure management plan",
+          "Tool qualification procedures",
+          "Security control documentation",
+          "Performance monitoring reports"
+        ]
+      },
+      "comprehensive": {
+        "description": "Strategic infrastructure planning with integrated tools, advanced security architecture, and predictive maintenance, critical for transit/infrastructure where downtime affects safety and operations per INCOSE and ISO standards.",
+        "activities": [
+          "Create strategic infrastructure roadmap",
+          "Integrate tool ecosystem",
+          "Architect comprehensive security",
+          "Implement predictive maintenance",
+          "Optimize performance with analytics"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Strategic portfolio needs",
+          "Comprehensive risks",
+          "Measurement data"
+        ],
+        "outputs": [
+          "Optimized infrastructure",
+          "Analytics dashboards"
+        ],
+        "artifacts": [
+          "Strategic infrastructure roadmap",
+          "Integrated tool environment specification",
+          "Comprehensive security architecture",
+          "Predictive maintenance program",
+          "Performance optimization analytics"
+        ]
+      }
+    }
+  },
+  {
+    "id": "portfolio_management",
+    "name": "Portfolio Management Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic project registration and prioritization with resource allocation for essential oversight.",
+        "activities": [
+          "Register incoming projects",
+          "Apply simple prioritization criteria",
+          "Allocate available resources"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Initial project concepts",
+          "Organizational priorities"
+        ],
+        "outputs": [
+          "Project authorizations",
+          "Resource records"
+        ],
+        "artifacts": [
+          "Project registry",
+          "Basic prioritization criteria",
+          "Resource allocation records"
+        ]
+      },
+      "standard": {
+        "description": "Structured portfolio planning with evaluation and tracking, suitable for balanced resource distribution in medium-scale operations.",
+        "activities": [
+          "Develop portfolio management plan",
+          "Evaluate projects using framework",
+          "Track portfolio performance",
+          "Manage resource allocation"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Business analysis outputs",
+          "Risk data",
+          "Resource constraints"
+        ],
+        "outputs": [
+          "Optimized project portfolio",
+          "Performance dashboards"
+        ],
+        "artifacts": [
+          "Portfolio management plan",
+          "Project evaluation framework",
+          "Portfolio performance dashboard",
+          "Resource management plan"
+        ]
+      },
+      "comprehensive": {
+        "description": "Strategic optimization using advanced analytics and valuation models, vital for infrastructure portfolios where alignment with long-term goals drives value per INCOSE portfolio management practices.",
+        "activities": [
+          "Align portfolio with strategic objectives",
+          "Model project valuations",
+          "Perform optimization analytics",
+          "Support decision-making with systems"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Detailed mission models",
+          "Integrated metrics",
+          "Quality trends"
+        ],
+        "outputs": [
+          "Optimized value delivery",
+          "Decision support systems"
+        ],
+        "artifacts": [
+          "Strategic portfolio alignment framework",
+          "Advanced valuation models",
+          "Portfolio optimization analytics",
+          "Resource capacity modeling",
+          "Decision support systems"
+        ]
+      }
+    }
+  },
+  {
+    "id": "human_resource_management",
+    "name": "Human Resource Management Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic skills identification and assignments for immediate team formation.",
+        "activities": [
+          "Create skills matrix",
+          "Record training activities",
+          "Assign team members"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Project staffing needs",
+          "Basic competencies"
+        ],
+        "outputs": [
+          "Staffed projects",
+          "Assignment documentation"
+        ],
+        "artifacts": [
+          "Skills matrix",
+          "Training records",
+          "Team assignment documentation"
+        ]
+      },
+      "standard": {
+        "description": "Structured competency management with development planning for workforce growth.",
+        "activities": [
+          "Define competency framework",
+          "Plan training and development",
+          "Evaluate performance",
+          "Facilitate knowledge sharing"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Portfolio resource plans",
+          "Quality requirements",
+          "Knowledge assets"
+        ],
+        "outputs": [
+          "Competent workforce",
+          "Evaluation processes"
+        ],
+        "artifacts": [
+          "Competency framework",
+          "Training and development plans",
+          "Performance evaluation process",
+          "Knowledge sharing procedures"
+        ]
+      },
+      "comprehensive": {
+        "description": "Strategic workforce development including succession planning, essential for long-term infrastructure projects where skill gaps can delay delivery per INCOSE competency frameworks.",
+        "activities": [
+          "Model comprehensive competencies",
+          "Develop strategic workforce plan",
+          "Implement performance development",
+          "Manage succession planning"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Capacity models",
+          "Strategic knowledge needs",
+          "Performance data"
+        ],
+        "outputs": [
+          "Optimized human capital",
+          "Succession plans"
+        ],
+        "artifacts": [
+          "Comprehensive competency models",
+          "Strategic workforce development plan",
+          "Performance development framework",
+          "Succession planning documentation",
+          "Knowledge management system integration"
+        ]
+      }
+    }
+  },
+  {
+    "id": "quality_management",
+    "name": "Quality Management Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Establishment of simple quality objectives with basic inspections for compliance.",
+        "activities": [
+          "Set basic quality objectives",
+          "Use inspection checklists",
+          "Track and resolve issues"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Project objectives",
+          "Organizational quality policy"
+        ],
+        "outputs": [
+          "Quality assurance activities",
+          "Issue records"
+        ],
+        "artifacts": [
+          "Basic quality objectives",
+          "Inspection checklists",
+          "Issue tracking records"
+        ]
+      },
+      "standard": {
+        "description": "Defined quality system with formal procedures and corrective actions, aligned with ISO 9001 basics.",
+        "activities": [
+          "Develop quality management plan",
+          "Apply assurance procedures",
+          "Report quality metrics",
+          "Implement corrective actions"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Performance data",
+          "Risk information",
+          "Process assessments"
+        ],
+        "outputs": [
+          "Quality improvements",
+          "Metrics reports"
+        ],
+        "artifacts": [
+          "Quality management plan",
+          "Quality assurance procedures",
+          "Quality metrics reports",
+          "Corrective action records"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive, ISO-aligned quality management with risk-based planning and continuous improvement, critical for transit safety and reliability per INCOSE and infrastructure standards.",
+        "activities": [
+          "Align with ISO/standards",
+          "Conduct risk-based planning",
+          "Analyze root causes",
+          "Drive continuous improvement"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Strategic alignment",
+          "Advanced metrics",
+          "Knowledge insights"
+        ],
+        "outputs": [
+          "Optimized quality performance",
+          "Improvement programs"
+        ],
+        "artifacts": [
+          "ISO-aligned quality management system",
+          "Risk-based quality planning",
+          "Advanced quality metrics dashboard",
+          "Root cause analysis framework",
+          "Continuous improvement program"
+        ]
+      }
+    }
+  },
+  {
+    "id": "knowledge_management",
+    "name": "Knowledge Management Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic document management and lessons learned capture for reuse.",
+        "activities": [
+          "Maintain document repository",
+          "Record lessons learned",
+          "Share basic guidelines"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Information structures",
+          "Project lessons"
+        ],
+        "outputs": [
+          "Accessible knowledge",
+          "Lessons records"
+        ],
+        "artifacts": [
+          "Document repository",
+          "Basic lessons learned records",
+          "Knowledge sharing guidelines"
+        ]
+      },
+      "standard": {
+        "description": "Structured repository with organized sharing and communities of practice.",
+        "activities": [
+          "Develop knowledge management plan",
+          "Structure repository",
+          "Form communities of practice",
+          "Host sharing events"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Quality processes",
+          "Portfolio knowledge needs",
+          "Risk lessons"
+        ],
+        "outputs": [
+          "Reusable knowledge assets",
+          "Event documentation"
+        ],
+        "artifacts": [
+          "Knowledge management plan",
+          "Structured knowledge repository",
+          "Communities of practice documentation",
+          "Knowledge sharing event records"
+        ]
+      },
+      "comprehensive": {
+        "description": "Strategic knowledge management supporting innovation and IP protection, key for knowledge-intensive infrastructure projects per INCOSE.",
+        "activities": [
+          "Create knowledge strategy",
+          "Advance repository capabilities",
+          "Manage innovation processes",
+          "Measure knowledge metrics"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Improvement data",
+          "Measurement insights",
+          "Quality trends"
+        ],
+        "outputs": [
+          "Innovation enablement",
+          "IP procedures"
+        ],
+        "artifacts": [
+          "Knowledge management strategy",
+          "Advanced knowledge repository",
+          "Innovation management framework",
+          "Knowledge metrics dashboard",
+          "Intellectual property procedures"
+        ]
+      }
+    }
+  },
+  {
+    "id": "project_planning",
+    "name": "Project Planning Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Simple planning with key milestones and estimates for basic control.",
+        "activities": [
+          "Develop basic project plan",
+          "Create simple schedule",
+          "List resources",
+          "Estimate costs"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Portfolio authorizations",
+          "Requirements baseline"
+        ],
+        "outputs": [
+          "Project execution guidance",
+          "Basic plans"
+        ],
+        "artifacts": [
+          "Basic project plan",
+          "Simple schedule",
+          "Resource list",
+          "Cost estimate"
+        ]
+      },
+      "standard": {
+        "description": "Comprehensive management plan with integrated technical elements per PMBOK/INCOSE integration.",
+        "activities": [
+          "Create project management plan",
+          "Develop WBS",
+          "Detail schedule with dependencies",
+          "Plan resources"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Verified requirements",
+          "Risks",
+          "Stakeholder needs"
+        ],
+        "outputs": [
+          "Integrated project plans",
+          "Risk registers"
+        ],
+        "artifacts": [
+          "Project management plan",
+          "Work breakdown structure",
+          "Detailed schedule with dependencies",
+          "Resource management plan",
+          "Risk register"
+        ]
+      },
+      "comprehensive": {
+        "description": "Integrated suite with probabilistic analysis for complex infrastructure planning where uncertainties are high.",
+        "activities": [
+          "Integrate multi-view planning",
+          "Perform probabilistic analysis",
+          "Optimize resources",
+          "Develop communication plan"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Advanced requirements",
+          "Comprehensive needs",
+          "Portfolio models"
+        ],
+        "outputs": [
+          "Optimized project execution",
+          "Communication plans"
+        ],
+        "artifacts": [
+          "Integrated planning documentation",
+          "Multi-view work breakdown structure",
+          "Probabilistic schedule analysis",
+          "Resource optimization analysis",
+          "Risk-based estimates",
+          "Stakeholder communication plan"
+        ]
+      }
+    }
+  },
+  {
+    "id": "project_assessment_control",
+    "name": "Project Assessment and Control Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic progress tracking and issue management for oversight.",
+        "activities": [
+          "Report project status",
+          "Log issues",
+          "Minute meetings",
+          "Log changes"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Project plans",
+          "Performance data"
+        ],
+        "outputs": [
+          "Corrective actions",
+          "Status reports"
+        ],
+        "artifacts": [
+          "Status reports",
+          "Issue log",
+          "Meeting minutes",
+          "Basic change log"
+        ]
+      },
+      "standard": {
+        "description": "Regular assessment with earned value and change control per PM standards.",
+        "activities": [
+          "Measure performance",
+          "Track issues",
+          "Review actions",
+          "Control changes"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Detailed plans",
+          "Trend analyses",
+          "Quality reports"
+        ],
+        "outputs": [
+          "Project control decisions",
+          "Change documentation"
+        ],
+        "artifacts": [
+          "Performance measurement reports",
+          "Issue management database",
+          "Review records with action tracking",
+          "Change control documentation",
+          "Corrective action plans"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive measurement with predictive analytics for proactive control in dynamic projects.",
+        "activities": [
+          "Dashboard performance monitoring",
+          "Track issues with metrics",
+          "Analyze trends",
+          "Model predictions"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Predictive models",
+          "Quality trends",
+          "Risks"
+        ],
+        "outputs": [
+          "Optimized project performance",
+          "Predictive models"
+        ],
+        "artifacts": [
+          "Integrated performance dashboard",
+          "Advanced issue tracking with metrics",
+          "Comprehensive review documentation",
+          "Change impact analyses",
+          "Trend analysis reports",
+          "Predictive performance models"
+        ]
+      }
+    }
+  },
+  {
+    "id": "decision_management",
+    "name": "Decision Management Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Simple criteria-based decisions with basic analysis.",
+        "activities": [
+          "Record key decisions",
+          "Analyze basic alternatives",
+          "Minute decision outcomes"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Analysis data",
+          "Alternatives"
+        ],
+        "outputs": [
+          "Documented decisions",
+          "Analysis notes"
+        ],
+        "artifacts": [
+          "Decision records",
+          "Basic alternatives analysis",
+          "Meeting minutes with decisions"
+        ]
+      },
+      "standard": {
+        "description": "Structured process with matrices for traceability per INCOSE decision practices.",
+        "activities": [
+          "Plan decision process",
+          "Create criteria matrices",
+          "Report analyses",
+          "Document rationale"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Analysis recommendations",
+          "Performance data",
+          "Risks"
+        ],
+        "outputs": [
+          "Justified decisions",
+          "Rationale records"
+        ],
+        "artifacts": [
+          "Decision management plan",
+          "Decision criteria matrices",
+          "Alternatives analysis reports",
+          "Decision records with rationale",
+          "Stakeholder input documentation"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive framework with uncertainty modeling for high-stakes decisions in infrastructure.",
+        "activities": [
+          "Govern decision framework",
+          "Model advanced scenarios",
+          "Analyze uncertainties",
+          "Measure effectiveness"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Sensitivity analyses",
+          "Effectiveness metrics",
+          "Stakeholder inputs"
+        ],
+        "outputs": [
+          "Optimized decisions",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Decision governance framework",
+          "Advanced decision models",
+          "Comprehensive alternatives analysis",
+          "Uncertainty and sensitivity analyses",
+          "Decision effectiveness metrics",
+          "Stakeholder engagement records"
+        ]
+      }
+    }
+  },
+  {
+    "id": "risk_management",
+    "name": "Risk Management Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic identification and assessment for awareness.",
+        "activities": [
+          "Register risks",
+          "Assess using matrix",
+          "Report risks basically"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Project plans",
+          "Issues"
+        ],
+        "outputs": [
+          "Risk awareness",
+          "Basic reports"
+        ],
+        "artifacts": [
+          "Simple risk register",
+          "Risk assessment matrix",
+          "Basic risk reports"
+        ]
+      },
+      "standard": {
+        "description": "Structured process with treatment plans per ISO 31000.",
+        "activities": [
+          "Plan risk management",
+          "Detail risk register",
+          "Plan responses",
+          "Report regularly"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Planning risks",
+          "Analysis data",
+          "Quality issues"
+        ],
+        "outputs": [
+          "Risk mitigation strategies",
+          "Response plans"
+        ],
+        "artifacts": [
+          "Risk management plan",
+          "Detailed risk register with assessment",
+          "Risk response plans",
+          "Regular risk reports",
+          "Risk review records"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive framework with modeling for predictive risk handling in transit safety-critical systems.",
+        "activities": [
+          "Document framework",
+          "Model/simulate risks",
+          "Strategize responses",
+          "Dashboard indicators"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Advanced models",
+          "Portfolio risks",
+          "Measurement predictions"
+        ],
+        "outputs": [
+          "Optimized risk posture",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Risk management framework documentation",
+          "Advanced risk models and simulations",
+          "Detailed risk response strategies with triggers",
+          "Risk dashboards with leading indicators",
+          "Integrated risk database",
+          "Risk management effectiveness metrics"
+        ]
+      }
+    }
+  },
+  {
+    "id": "configuration_management",
+    "name": "Configuration Management Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Simple version control for key items.",
+        "activities": [
+          "List configuration items",
+          "Request changes simply",
+          "Report status",
+          "Control versions"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Information items",
+          "Baselines"
+        ],
+        "outputs": [
+          "Controlled baselines",
+          "Status reports"
+        ],
+        "artifacts": [
+          "Configuration item list",
+          "Simple change request forms",
+          "Basic configuration status reports",
+          "Version control records"
+        ]
+      },
+      "standard": {
+        "description": "Formal identification and change board per EIA-649.",
+        "activities": [
+          "Plan configuration management",
+          "Identify scheme",
+          "Control via board",
+          "Account status",
+          "Audit configurations"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Quality procedures",
+          "Risks",
+          "Requirements"
+        ],
+        "outputs": [
+          "Verified changes",
+          "Audit reports"
+        ],
+        "artifacts": [
+          "Configuration management plan",
+          "Configuration identification scheme",
+          "Change control board procedures",
+          "Configuration status accounting reports",
+          "Configuration audit reports",
+          "Baseline documentation"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive management with automation for traceability in large systems.",
+        "activities": [
+          "Plan comprehensively",
+          "Systematically identify",
+          "Analyze change impacts",
+          "Automate reports",
+          "Integrate with PLM"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Traceability networks",
+          "Design models",
+          "Integration data"
+        ],
+        "outputs": [
+          "Optimized configuration control",
+          "Metrics dashboards"
+        ],
+        "artifacts": [
+          "Comprehensive configuration management plan",
+          "Detailed configuration identification system",
+          "Advanced change control with impact analysis",
+          "Automated configuration status reports",
+          "Comprehensive audit documentation",
+          "Configuration metrics dashboard",
+          "PLM/ALM system integration"
+        ]
+      }
+    }
+  },
+  {
+    "id": "information_management",
+    "name": "Information Management Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic repository with access control.",
+        "activities": [
+          "Structure repository",
+          "List access controls",
+          "Backup data",
+          "Inventory information"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Knowledge guidelines",
+          "Project data"
+        ],
+        "outputs": [
+          "Accessible information",
+          "Inventory lists"
+        ],
+        "artifacts": [
+          "Information repository structure",
+          "Basic access control list",
+          "Backup procedures",
+          "Simple information inventory"
+        ]
+      },
+      "standard": {
+        "description": "Structured management with protocols per ISO/IEC 27001 basics.",
+        "activities": [
+          "Plan information management",
+          "Categorize scheme",
+          "Control access",
+          "Plan recovery",
+          "Protocol exchanges"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Quality metrics",
+          "Risks",
+          "Disposal needs"
+        ],
+        "outputs": [
+          "Secured information management",
+          "Security procedures"
+        ],
+        "artifacts": [
+          "Information management plan",
+          "Information categorization scheme",
+          "Access control procedures",
+          "Backup and recovery plan",
+          "Information exchange protocols",
+          "Information security procedures"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive architecture for lifecycle info in knowledge-heavy projects.",
+        "activities": [
+          "Document architecture",
+          "Schema metadata",
+          "Matrix access",
+          "Plan continuity",
+          "Agree exchanges"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Strategic portfolio data",
+          "Archiving strategies",
+          "Measurement data"
+        ],
+        "outputs": [
+          "Optimized information value",
+          "Quality metrics"
+        ],
+        "artifacts": [
+          "Information architecture documentation",
+          "Metadata schema and relationships",
+          "Access control matrix with audit procedures",
+          "Comprehensive backup, recovery, and continuity plan",
+          "Information exchange agreements",
+          "Information security framework",
+          "Information lifecycle policies",
+          "Information quality metrics"
+        ]
+      }
+    }
+  },
+  {
+    "id": "measurement",
+    "name": "Measurement Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic metrics for tracking.",
+        "activities": [
+          "Define simple metrics",
+          "Collect data",
+          "Report measurements"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Project plans",
+          "Quality objectives"
+        ],
+        "outputs": [
+          "Basic performance insights",
+          "Reports"
+        ],
+        "artifacts": [
+          "Simple metrics definitions",
+          "Basic data collection forms",
+          "Measurement reports"
+        ]
+      },
+      "standard": {
+        "description": "Defined framework with trends per ISO/IEC 15939.",
+        "activities": [
+          "Plan measurement",
+          "Define constructs",
+          "Procedure collection",
+          "Analyze trends",
+          "Review measures"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Analysis needs",
+          "Performance data",
+          "Risks"
+        ],
+        "outputs": [
+          "Trend-based insights",
+          "Review records"
+        ],
+        "artifacts": [
+          "Measurement plan",
+          "Measurement construct definitions",
+          "Data collection procedures",
+          "Analysis reports with trends",
+          "Measurement review records"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive strategy with predictive analytics for decision support.",
+        "activities": [
+          "Plan comprehensively",
+          "Framework measurement",
+          "Automate tools",
+          "Analyze methods",
+          "Evaluate effectiveness"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Advanced analyses",
+          "Quality dashboards",
+          "Portfolio metrics"
+        ],
+        "outputs": [
+          "Predictive analytics",
+          "Dashboards"
+        ],
+        "artifacts": [
+          "Comprehensive measurement plan",
+          "Advanced measurement framework",
+          "Automated data collection tools",
+          "Statistical analysis methodologies",
+          "Predictive models documentation",
+          "Measurement effectiveness evaluation",
+          "Integrated measurement dashboard"
+        ]
+      }
+    }
+  },
+  {
+    "id": "quality_assurance",
+    "name": "Quality Assurance Process",
+    "category": "technical_management",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic audits and reviews for compliance.",
+        "activities": [
+          "Plan basic assurance",
+          "Conduct audits",
+          "Report non-conformances",
+          "Track resolutions"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Processes",
+          "Project data"
+        ],
+        "outputs": [
+          "Compliance evidence",
+          "Resolution records"
+        ],
+        "artifacts": [
+          "Quality assurance plan",
+          "Audit reports",
+          "Non-conformance records",
+          "Resolution tracking"
+        ]
+      },
+      "standard": {
+        "description": "Structured assurance with evaluations per ISO 9001.",
+        "activities": [
+          "Develop assurance plan",
+          "Perform evaluations",
+          "Report regularly",
+          "Initiate improvements"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Quality plans",
+          "Configuration audits",
+          "Risks"
+        ],
+        "outputs": [
+          "Quality assurance insights",
+          "Improvement plans"
+        ],
+        "artifacts": [
+          "Detailed quality assurance plan",
+          "Evaluation procedures and results",
+          "Regular quality reports",
+          "Improvement action plans"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive program with trend analyses for proactive quality in safety-critical systems.",
+        "activities": [
+          "Strategize assurance",
+          "Conduct comprehensive audits",
+          "Analyze trends",
+          "Drive improvement initiatives"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Improvement programs",
+          "Advanced configs",
+          "Measurement evaluations"
+        ],
+        "outputs": [
+          "Optimized quality assurance",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Quality assurance strategy",
+          "Comprehensive evaluation program",
+          "Quality trend analyses",
+          "Formal improvement initiative documentation",
+          "Assurance effectiveness metrics"
+        ]
+      }
+    }
+  },
+  {
+    "id": "business_mission_analysis",
+    "name": "Business or Mission Analysis Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic problem identification and alternatives exploration.",
+        "activities": [
+          "Define problem statement",
+          "Explore solution alternatives",
+          "Identify initial stakeholders"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Portfolio directives",
+          "External opportunities"
+        ],
+        "outputs": [
+          "Initial business requirements",
+          "Stakeholder lists"
+        ],
+        "artifacts": [
+          "Problem statement",
+          "Solution alternatives",
+          "Initial stakeholder list"
+        ]
+      },
+      "standard": {
+        "description": "Structured analysis with stakeholder mapping per INCOSE.",
+        "activities": [
+          "Develop analysis plan",
+          "Map stakeholders",
+          "Analyze problems",
+          "Define initial concepts"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Stakeholder data",
+          "Risks",
+          "Quality objectives"
+        ],
+        "outputs": [
+          "Defined business needs",
+          "Concept documents"
+        ],
+        "artifacts": [
+          "Business/mission analysis plan",
+          "Stakeholder maps",
+          "Problem definition document",
+          "Initial concepts of operations"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive analysis with value modeling for strategic alignment.",
+        "activities": [
+          "Perform comprehensive analysis",
+          "Model stakeholder value",
+          "Conduct opportunity analysis",
+          "Develop business cases"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Advanced stakeholder models",
+          "Portfolio analytics",
+          "Measurement predictions"
+        ],
+        "outputs": [
+          "Strategic business insights",
+          "Value models"
+        ],
+        "artifacts": [
+          "Comprehensive problem analysis",
+          "Stakeholder value models",
+          "Opportunity/risk profiles",
+          "Detailed business case documentation"
+        ]
+      }
+    }
+  },
+  {
+    "id": "stakeholder_needs_requirements",
+    "name": "Stakeholder Needs and Requirements Definition Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic needs elicitation and validation.",
+        "activities": [
+          "List stakeholders",
+          "Elicit basic needs",
+          "Validate simply",
+          "Note constraints"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Problem definitions",
+          "Validation data"
+        ],
+        "outputs": [
+          "Basic stakeholder requirements",
+          "Validation records"
+        ],
+        "artifacts": [
+          "Stakeholder list",
+          "Needs statements",
+          "Simple validation records",
+          "Basic constraints list"
+        ]
+      },
+      "standard": {
+        "description": "Structured elicitation with conflict resolution.",
+        "activities": [
+          "Analyze stakeholders",
+          "Elicit needs formally",
+          "Validate with plan",
+          "Analyze constraints",
+          "Resolve conflicts"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Analysis outputs",
+          "Validation results",
+          "Quality checks"
+        ],
+        "outputs": [
+          "Validated stakeholder requirements",
+          "Conflict records"
+        ],
+        "artifacts": [
+          "Stakeholder analysis document",
+          "Stakeholder needs specification",
+          "Elicitation records",
+          "Validation plan and results",
+          "Constraints analysis",
+          "Conflict resolution records"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive modeling with engagement planning for full traceability.",
+        "activities": [
+          "Map stakeholder influence",
+          "Model comprehensive needs",
+          "Apply multiple techniques",
+          "Strategize validation",
+          "Analyze constraint impacts"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Value models",
+          "Advanced validation",
+          "Assurance evaluations"
+        ],
+        "outputs": [
+          "Comprehensive stakeholder value definition",
+          "Engagement plans"
+        ],
+        "artifacts": [
+          "Detailed stakeholder influence maps",
+          "Comprehensive needs models",
+          "Multiple elicitation technique results",
+          "Formal validation strategy and evidence",
+          "Extensive constraints impact analysis",
+          "Conflict resolution process documentation",
+          "Stakeholder engagement plan and records"
+        ]
+      }
+    }
+  },
+  {
+    "id": "system_requirements_definition",
+    "name": "System Requirements Definition Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Simple derivation with basic traceability.",
+        "activities": [
+          "Document requirements",
+          "Trace simply with matrix",
+          "Review requirements"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Stakeholder needs",
+          "Architecture concepts"
+        ],
+        "outputs": [
+          "System requirements baseline",
+          "Review records"
+        ],
+        "artifacts": [
+          "System requirements document",
+          "Simple traceability matrix",
+          "Requirements review records"
+        ]
+      },
+      "standard": {
+        "description": "Structured development with database management.",
+        "activities": [
+          "Plan requirements development",
+          "Specify requirements",
+          "Attribute in database",
+          "Trace with matrix",
+          "Validate records",
+          "Plan verification"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Needs specification",
+          "Architecture views",
+          "Validation data"
+        ],
+        "outputs": [
+          "Verified system requirements",
+          "Planning documentation"
+        ],
+        "artifacts": [
+          "Requirements development plan",
+          "System requirements specification",
+          "Requirements database with attributes",
+          "Traceability matrix",
+          "Validation records",
+          "Verification planning documentation",
+          "Change management records"
+        ]
+      },
+      "comprehensive": {
+        "description": "Model-based with full traceability network per SysML/INCOSE.",
+        "activities": [
+          "Model behaviors",
+          "Specify formally",
+          "Manage comprehensive database",
+          "Document traceability network",
+          "Strategize validation",
+          "Plan verification"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Needs models",
+          "Architecture models",
+          "Verification strategies"
+        ],
+        "outputs": [
+          "Optimized requirements baseline",
+          "Quality metrics"
+        ],
+        "artifacts": [
+          "Requirements models (behavior, functional, etc.)",
+          "Formal requirements specification",
+          "Comprehensive requirements database",
+          "Complete traceability network documentation",
+          "Detailed validation strategy and results",
+          "Comprehensive verification planning",
+          "Change impact analysis methodology",
+          "Requirements quality metrics"
+        ]
+      }
+    }
+  },
+  {
+    "id": "system_architecture_definition_process",
+    "name": "System Architecture Definition Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic concepts with interface lists.",
+        "activities": [
+          "Describe architecture simply",
+          "List interfaces",
+          "Create diagrams",
+          "Note evaluations"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Requirements document",
+          "Analysis reports"
+        ],
+        "outputs": [
+          "Architecture guidance for design",
+          "Diagrams"
+        ],
+        "artifacts": [
+          "Simple architecture description",
+          "Basic interface list",
+          "Architecture diagrams",
+          "Evaluation notes"
+        ]
+      },
+      "standard": {
+        "description": "Structured development with evaluation per ISO/IEC/IEEE 42010.",
+        "activities": [
+          "Plan architecture development",
+          "Document views",
+          "Control interfaces",
+          "Analyze alternatives",
+          "Report evaluations"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Requirements specification",
+          "Analysis recommendations",
+          "Verification data"
+        ],
+        "outputs": [
+          "Verified architecture",
+          "Evaluation results"
+        ],
+        "artifacts": [
+          "Architecture development plan",
+          "Architecture description document with views",
+          "Interface control document",
+          "Architecture alternatives analysis",
+          "Architecture evaluation results",
+          "Architecture governance plan"
+        ]
+      },
+      "comprehensive": {
+        "description": "Model-based with governance for complex architectures in transit.",
+        "activities": [
+          "Model formally",
+          "Describe comprehensively",
+          "Specify interfaces",
+          "Analyze extensively",
+          "Report evaluations"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Requirements models",
+          "Architecture descriptions",
+          "Verification evidence"
+        ],
+        "outputs": [
+          "Optimized architecture",
+          "Metrics assessments"
+        ],
+        "artifacts": [
+          "Architecture models in formal notation",
+          "Comprehensive architecture description",
+          "Detailed interface specifications",
+          "Extensive alternatives analysis with trade studies",
+          "Formal architecture evaluation report",
+          "Architecture governance documentation",
+          "Architecture metrics and quality assessment",
+          "Architecture patterns and reference architectures"
+        ]
+      }
+    }
+  },
+  {
+    "id": "design_definition",
+    "name": "Design Definition Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic decisions with verification.",
+        "activities": [
+          "Document design",
+          "Create diagrams",
+          "Select technologies",
+          "Record basic verification"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Architecture description",
+          "Implementation needs"
+        ],
+        "outputs": [
+          "Design guidance for implementation",
+          "Verification records"
+        ],
+        "artifacts": [
+          "Design documentation",
+          "Design diagrams",
+          "Technology selections",
+          "Basic verification records"
+        ]
+      },
+      "standard": {
+        "description": "Structured with alternatives per INCOSE design practices.",
+        "activities": [
+          "Plan design",
+          "Document comprehensively",
+          "Analyze alternatives",
+          "Verify results",
+          "Assess technologies"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Architecture document",
+          "Implementation progress",
+          "Analysis data"
+        ],
+        "outputs": [
+          "Verified design",
+          "Review records"
+        ],
+        "artifacts": [
+          "Design plan",
+          "Comprehensive design documentation",
+          "Design alternatives analysis",
+          "Verification results",
+          "Technology assessment report",
+          "Design review records"
+        ]
+      },
+      "comprehensive": {
+        "description": "Model-based optimization for detailed infrastructure designs.",
+        "activities": [
+          "Model formally",
+          "Document views",
+          "Analyze extensively",
+          "Strategize verification",
+          "Roadmap technologies"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Architecture description",
+          "Advanced modeling",
+          "Integration strategies"
+        ],
+        "outputs": [
+          "Optimized design",
+          "Metrics assessments"
+        ],
+        "artifacts": [
+          "Design models in formal notation",
+          "Detailed design documentation with multiple views",
+          "Extensive alternatives analysis with optimization",
+          "Comprehensive verification strategy and results",
+          "Advanced technology assessment and roadmap",
+          "Formal design review documentation",
+          "Design patterns catalog and application",
+          "Design metrics and quality assessment"
+        ]
+      }
+    }
+  },
+  {
+    "id": "system_analysis",
+    "name": "System Analysis Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Limited types with simple methods.",
+        "activities": [
+          "Report analyses simply",
+          "Analyze data",
+          "Document basic methodology"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Decision alternatives",
+          "Data needs"
+        ],
+        "outputs": [
+          "Analysis results for decisions",
+          "Data"
+        ],
+        "artifacts": [
+          "Simple analysis reports",
+          "Analysis data",
+          "Basic methodology documentation"
+        ]
+      },
+      "standard": {
+        "description": "Multiple types with documented methods.",
+        "activities": [
+          "Plan analysis",
+          "Document methodologies",
+          "Report recommendations",
+          "Guideline tools"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Alternatives reports",
+          "Collection procedures",
+          "Verification data"
+        ],
+        "outputs": [
+          "Comprehensive analysis insights",
+          "Support documentation"
+        ],
+        "artifacts": [
+          "Analysis plan",
+          "Analysis methodologies documentation",
+          "Analysis reports with recommendations",
+          "Tool usage guidelines",
+          "Decision support documentation"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive strategy with advanced modeling per INCOSE analysis heuristics.",
+        "activities": [
+          "Strategize analysis",
+          "Framework comprehensive",
+          "Document modeling",
+          "Validate methodology",
+          "Quantify uncertainties"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Decision packages",
+          "Validation methods",
+          "Measurement evaluations"
+        ],
+        "outputs": [
+          "Optimized analytical insights",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Analysis strategy",
+          "Comprehensive analysis framework",
+          "Advanced modeling and simulation documentation",
+          "Detailed methodology with validation",
+          "Tool environment documentation",
+          "Uncertainty quantification approach",
+          "Analysis effectiveness metrics",
+          "Decision support package with sensitivity analysis"
+        ]
+      }
+    }
+  },
+  {
+    "id": "implementation",
+    "name": "Implementation Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic planning with tracking.",
+        "activities": [
+          "Plan implementation",
+          "Record progress",
+          "Document basic acceptance",
+          "Document product"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Design docs",
+          "Integration plans"
+        ],
+        "outputs": [
+          "Implemented elements",
+          "Product documentation"
+        ],
+        "artifacts": [
+          "Implementation plan",
+          "Implementation records",
+          "Basic acceptance documentation",
+          "Product documentation"
+        ]
+      },
+      "standard": {
+        "description": "Structured with procedures per ISO/IEC/IEEE 15288.",
+        "activities": [
+          "Plan detailed",
+          "Report progress",
+          "Procedure/test acceptance",
+          "Review implementation"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Design documentation",
+          "Integration procedures",
+          "Configuration baselines"
+        ],
+        "outputs": [
+          "Verified implemented elements",
+          "Review records"
+        ],
+        "artifacts": [
+          "Detailed implementation plan with procedures",
+          "Implementation progress reports",
+          "Acceptance test procedures and results",
+          "Comprehensive product documentation",
+          "Implementation review records"
+        ]
+      },
+      "comprehensive": {
+        "description": "Detailed strategy with optimization for manufacturing in infrastructure.",
+        "activities": [
+          "Strategize implementation",
+          "Optimize techniques",
+          "Dashboard monitor",
+          "Package test comprehensive"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Design suite",
+          "Verification strategies",
+          "Risks"
+        ],
+        "outputs": [
+          "Optimally implemented system elements",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Implementation strategy",
+          "Detailed procedures with optimization techniques",
+          "Continuous monitoring dashboard",
+          "Comprehensive acceptance test package",
+          "Extensive product documentation suite",
+          "Formal review documentation",
+          "Implementation effectiveness metrics",
+          "Lessons learned documentation"
+        ]
+      }
+    }
+  },
+  {
+    "id": "integration",
+    "name": "Integration Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic planning with issue logging.",
+        "activities": [
+          "Plan integration",
+          "Record activities",
+          "Log issues",
+          "Report integration"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Implementation records",
+          "Configurations"
+        ],
+        "outputs": [
+          "Integrated system",
+          "Reports"
+        ],
+        "artifacts": [
+          "Integration plan",
+          "Integration records",
+          "Issue log",
+          "Integration report"
+        ]
+      },
+      "standard": {
+        "description": "Structured sequence with environment spec.",
+        "activities": [
+          "Plan detailed sequence",
+          "Specify environment",
+          "Procedure integrate",
+          "Record verification",
+          "Track database"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Product docs",
+          "Status accounting",
+          "Verification plans"
+        ],
+        "outputs": [
+          "Verified integrated system",
+          "Review documentation"
+        ],
+        "artifacts": [
+          "Detailed integration plan with sequence",
+          "Integration environment specification",
+          "Integration procedures",
+          "Verification records",
+          "Issue tracking database",
+          "Integration review documentation"
+        ]
+      },
+      "comprehensive": {
+        "description": "Detailed strategy with risk assessment for complex integrations.",
+        "activities": [
+          "Strategize integration",
+          "Assess risks",
+          "Manage environment",
+          "Result verification comprehensive",
+          "Analyze issues"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Product suite",
+          "Risk assessments",
+          "Verification results"
+        ],
+        "outputs": [
+          "Optimally integrated system",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Integration strategy",
+          "Advanced integration plan with risk assessment",
+          "Detailed integration environment management plan",
+          "Comprehensive verification strategy and results",
+          "Advanced issue tracking system with analytics",
+          "Formal review documentation",
+          "Integration effectiveness metrics",
+          "Lessons learned documentation"
+        ]
+      }
+    }
+  },
+  {
+    "id": "verification",
+    "name": "Verification Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic planning with methods.",
+        "activities": [
+          "Plan verification",
+          "Procedure methods",
+          "Report results",
+          "Log defects"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Integration records",
+          "Requirements"
+        ],
+        "outputs": [
+          "Verification evidence",
+          "Reports"
+        ],
+        "artifacts": [
+          "Verification plan",
+          "Verification procedures",
+          "Verification reports",
+          "Defect log"
+        ]
+      },
+      "standard": {
+        "description": "Formal planning with multiple methods.",
+        "activities": [
+          "Plan detailed",
+          "Procedure multiple methods",
+          "Specify environment",
+          "Report comprehensive",
+          "Track database"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Integration procedures",
+          "Baselines",
+          "Risks"
+        ],
+        "outputs": [
+          "Comprehensive verification evidence",
+          "Review records"
+        ],
+        "artifacts": [
+          "Detailed verification plan",
+          "Verification procedures for multiple methods",
+          "Verification environment specification",
+          "Comprehensive verification reports",
+          "Defect tracking database",
+          "Verification review records"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive strategy with analytics for thorough verification.",
+        "activities": [
+          "Strategize verification",
+          "Approach risk-based",
+          "Procedure comprehensive",
+          "Manage environment",
+          "Trace reports"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Verification strategies",
+          "Advanced risks",
+          "Traceability"
+        ],
+        "outputs": [
+          "Comprehensive verification evidence",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Verification strategy",
+          "Detailed verification plans with risk-based approach",
+          "Comprehensive verification procedures",
+          "Verification environment management plan",
+          "Extensive verification reports with complete traceability",
+          "Advanced defect tracking and analysis",
+          "Formal review documentation",
+          "Verification effectiveness metrics"
+        ]
+      }
+    }
+  },
+  {
+    "id": "transition",
+    "name": "Transition Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic planning with training.",
+        "activities": [
+          "Plan transition",
+          "Procedure install",
+          "Material train",
+          "Report transition"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Verification reports",
+          "Validation data"
+        ],
+        "outputs": [
+          "Operational readiness",
+          "Reports"
+        ],
+        "artifacts": [
+          "Transition plan",
+          "Installation procedures",
+          "Training materials",
+          "Transition report"
+        ]
+      },
+      "standard": {
+        "description": "Structured with readiness verification.",
+        "activities": [
+          "Plan detailed",
+          "Procedure comprehensive",
+          "Verify readiness",
+          "Program train",
+          "Review documentation"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Verification reports",
+          "Validation reports",
+          "Operational plans"
+        ],
+        "outputs": [
+          "Operational system",
+          "Documentation packages"
+        ],
+        "artifacts": [
+          "Detailed transition plan",
+          "Comprehensive installation procedures",
+          "Operational readiness verification plan",
+          "Training program with materials",
+          "Transition review documentation",
+          "Transition documentation package"
+        ]
+      },
+      "comprehensive": {
+        "description": "Detailed strategy with readiness assessment for seamless transitions.",
+        "activities": [
+          "Strategize transition",
+          "Assess risks",
+          "Contingency install",
+          "Verify readiness comprehensive",
+          "Evaluate training"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Verification reports",
+          "Validation reports",
+          "Risks"
+        ],
+        "outputs": [
+          "Optimally transitioned system",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Transition strategy",
+          "Detailed transition plan with risk assessment",
+          "Installation procedures with contingencies",
+          "Comprehensive operational readiness verification",
+          "Advanced training program with evaluation",
+          "Formal review documentation",
+          "Complete transition package with all artifacts",
+          "Transition effectiveness metrics"
+        ]
+      }
+    }
+  },
+  {
+    "id": "validation",
+    "name": "Validation Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic planning with stakeholder involvement.",
+        "activities": [
+          "Plan validation",
+          "Procedure methods",
+          "Report results",
+          "Log defects"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Needs statements",
+          "Verification reports"
+        ],
+        "outputs": [
+          "Validation evidence",
+          "Reports"
+        ],
+        "artifacts": [
+          "Validation plan",
+          "Validation procedures",
+          "Validation reports",
+          "Defect log"
+        ]
+      },
+      "standard": {
+        "description": "Formal planning with engagement.",
+        "activities": [
+          "Plan detailed",
+          "Procedure multiple methods",
+          "Specify environment",
+          "Report comprehensive",
+          "Plan involvement"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Needs specification",
+          "Readiness plans",
+          "Quality data"
+        ],
+        "outputs": [
+          "Stakeholder acceptance evidence",
+          "Review records"
+        ],
+        "artifacts": [
+          "Detailed validation plan",
+          "Validation procedures for multiple methods",
+          "Validation environment specification",
+          "Comprehensive validation reports",
+          "Stakeholder involvement plan",
+          "Defect tracking database",
+          "Validation review records"
+        ]
+      },
+      "comprehensive": {
+        "description": "Comprehensive strategy with stakeholder focus for value confirmation.",
+        "activities": [
+          "Strategize validation",
+          "Focus stakeholder",
+          "Procedure comprehensive",
+          "Manage environment",
+          "Accept stakeholder"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Needs models",
+          "Assurance programs",
+          "Transition packages"
+        ],
+        "outputs": [
+          "Comprehensive stakeholder value confirmation",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Validation strategy",
+          "Detailed validation plans with stakeholder focus",
+          "Comprehensive validation procedures",
+          "Validation environment management plan",
+          "Extensive validation reports with stakeholder acceptance",
+          "Stakeholder involvement strategy",
+          "Advanced defect tracking and analysis",
+          "Formal review documentation",
+          "Validation effectiveness metrics"
+        ]
+      }
+    }
+  },
+  {
+    "id": "operation",
+    "name": "Operation Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic procedures with tracking.",
+        "activities": [
+          "Operate procedures",
+          "Report performance",
+          "Record problems",
+          "Document support"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Transition reports",
+          "Maintenance data"
+        ],
+        "outputs": [
+          "Operational performance data",
+          "Support documentation"
+        ],
+        "artifacts": [
+          "Operational procedures",
+          "Performance reports",
+          "Problem records",
+          "User support documentation"
+        ]
+      },
+      "standard": {
+        "description": "Comprehensive procedures with support per operational standards.",
+        "activities": [
+          "Plan operations",
+          "Procedure comprehensive",
+          "Monitor plan",
+          "Analyze performance",
+          "Manage problems"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Transition packages",
+          "Performance analyses",
+          "Quality procedures"
+        ],
+        "outputs": [
+          "Sustained operational capability",
+          "Review records"
+        ],
+        "artifacts": [
+          "Operational plan",
+          "Comprehensive procedures",
+          "Performance monitoring plan",
+          "Performance analysis reports",
+          "Problem management process",
+          "User support procedures",
+          "Operational review records",
+          "Training program"
+        ]
+      },
+      "comprehensive": {
+        "description": "Detailed strategy with analytics for optimal operations in transit.",
+        "activities": [
+          "Strategize operations",
+          "Contingency procedures",
+          "Framework monitor",
+          "Advanced analytics",
+          "Analyze roots"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Transition packages",
+          "Risk dashboards",
+          "Analytics"
+        ],
+        "outputs": [
+          "Optimized operational value delivery",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Operational strategy",
+          "Detailed operational procedures with contingencies",
+          "Performance monitoring framework",
+          "Advanced performance analytics",
+          "Problem management system with root cause analysis",
+          "Comprehensive user support infrastructure",
+          "Formal review documentation",
+          "Advanced training program with evaluation",
+          "Operational effectiveness metrics"
+        ]
+      }
+    }
+  },
+  {
+    "id": "maintenance",
+    "name": "Maintenance Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic planning with tracking.",
+        "activities": [
+          "Plan maintenance",
+          "Procedure activities",
+          "Record problems",
+          "Report maintenance"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Operational problems",
+          "Configurations"
+        ],
+        "outputs": [
+          "Sustained system capability",
+          "Reports"
+        ],
+        "artifacts": [
+          "Maintenance plan",
+          "Maintenance procedures",
+          "Problem records",
+          "Maintenance reports"
+        ]
+      },
+      "standard": {
+        "description": "Structured planning with environment management.",
+        "activities": [
+          "Plan detailed",
+          "Procedure comprehensive",
+          "Specify environment",
+          "Track database",
+          "Review records"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Performance analyses",
+          "Baselines",
+          "Quality reports"
+        ],
+        "outputs": [
+          "Optimized maintenance support",
+          "Documentation packages"
+        ],
+        "artifacts": [
+          "Detailed maintenance plan",
+          "Comprehensive maintenance procedures",
+          "Maintenance environment specification",
+          "Problem tracking database",
+          "Maintenance review records",
+          "Maintenance documentation package"
+        ]
+      },
+      "comprehensive": {
+        "description": "Detailed strategy with predictive maintenance for sustainment.",
+        "activities": [
+          "Strategize maintenance",
+          "Optimize procedures",
+          "Predictive methods",
+          "Manage environment",
+          "Analyze advanced"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Advanced analytics",
+          "Predictive models",
+          "Risks"
+        ],
+        "outputs": [
+          "Optimized lifecycle sustainment",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Maintenance strategy",
+          "Detailed procedures with optimization",
+          "Predictive maintenance methodology",
+          "Maintenance environment management plan",
+          "Advanced problem tracking and analysis",
+          "Formal review documentation",
+          "Complete maintenance package",
+          "Maintenance effectiveness metrics"
+        ]
+      }
+    }
+  },
+  {
+    "id": "disposal",
+    "name": "Disposal Process",
+    "category": "technical",
+    "description": "",
+    "tailoringLevels": {
+      "basic": {
+        "description": "Basic planning with compliance.",
+        "activities": [
+          "Plan disposal",
+          "Procedure activities",
+          "Report disposal",
+          "List archives"
+        ],
+        "effort": 1,
+        "complexity": 1,
+        "inputs": [
+          "Maintenance reports",
+          "Quality checks"
+        ],
+        "outputs": [
+          "Compliant disposal",
+          "Archive lists"
+        ],
+        "artifacts": [
+          "Disposal plan",
+          "Disposal procedures",
+          "Disposal report",
+          "Archive list"
+        ]
+      },
+      "standard": {
+        "description": "Structured with assessments per environmental standards.",
+        "activities": [
+          "Plan detailed",
+          "Procedure comprehensive",
+          "Assess environment",
+          "Procedure safety",
+          "Review records"
+        ],
+        "effort": 3,
+        "complexity": 3,
+        "inputs": [
+          "Maintenance packages",
+          "Quality reports",
+          "Risks"
+        ],
+        "outputs": [
+          "Responsible disposal with knowledge preservation",
+          "Documentation packages"
+        ],
+        "artifacts": [
+          "Detailed disposal plan",
+          "Comprehensive disposal procedures",
+          "Environmental assessment",
+          "Health and safety procedures",
+          "Disposal review records",
+          "Archiving plan",
+          "Disposal documentation package"
+        ]
+      },
+      "comprehensive": {
+        "description": "Detailed strategy with impact analysis for responsible disposal.",
+        "activities": [
+          "Strategize disposal",
+          "Assess risks",
+          "Analyze impact",
+          "Plan safety detailed",
+          "Document formal"
+        ],
+        "effort": 5,
+        "complexity": 5,
+        "inputs": [
+          "Maintenance packages",
+          "Risk frameworks",
+          "Information policies"
+        ],
+        "outputs": [
+          "Optimized disposal with maximum knowledge preservation",
+          "Effectiveness metrics"
+        ],
+        "artifacts": [
+          "Disposal strategy",
+          "Detailed disposal procedures with risk assessment",
+          "Comprehensive environmental impact analysis",
+          "Detailed health and safety plan",
+          "Formal review documentation",
+          "Complete disposal documentation",
+          "Advanced archiving strategy and implementation",
+          "Disposal effectiveness metrics"
+        ]
+      }
+    }
+  }
+]
