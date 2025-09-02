@@ -1,13 +1,31 @@
+"use strict";
+self["webpackHotUpdatese_tailoring_framework"]("main",{
+
+/***/ "./js/app.js":
+/*!*******************!*\
+  !*** ./js/app.js ***!
+  \*******************/
+/***/ ((__unused_webpack_module, __webpack_exports__, __webpack_require__) => {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _components_assessment_js__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./components/assessment.js */ "./js/components/assessment.js");
+/* harmony import */ var _components_assessment_js__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_components_assessment_js__WEBPACK_IMPORTED_MODULE_0__);
+/* harmony import */ var _components_visualization_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ./components/visualization.js */ "./js/components/visualization.js");
+/* harmony import */ var _components_visualization_js__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_components_visualization_js__WEBPACK_IMPORTED_MODULE_1__);
+/* harmony import */ var _components_recommendations_js__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/recommendations.js */ "./js/components/recommendations.js");
+/* harmony import */ var _components_recommendations_js__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_components_recommendations_js__WEBPACK_IMPORTED_MODULE_2__);
+/* harmony import */ var _components_export_js__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/export.js */ "./js/components/export.js");
+/* harmony import */ var _components_export_js__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(_components_export_js__WEBPACK_IMPORTED_MODULE_3__);
 /**
  * Main Application Controller for SE Process Tailoring Framework
  * Handles navigation, data loading, and view management
  */
 
 // Import component modules
-import './components/assessment.js';
-import './components/visualization.js';
-import './components/recommendations.js';
-import './components/export.js';
+
+
+
+
 
 class SEFrameworkApp {
   constructor() {
@@ -181,13 +199,8 @@ class SEFrameworkApp {
 toggleAdminPanel() {
   const adminPanel = document.getElementById("admin-panel");
   if (adminPanel) {
-    // Check if panel is currently visible (has transform style or is positioned at left: 0)
-    const isVisible = adminPanel.style.transform === "translateX(0px)" || 
-                     adminPanel.style.transform === "" ||
-                     adminPanel.style.left === "0px";
-    
-    // Toggle panel visibility - move it off-screen to the left
-    adminPanel.style.transform = isVisible ? "translateX(-100%)" : "translateX(0px)";
+    const isVisible = adminPanel.style.transform === "translateX(0px)" || adminPanel.style.transform === "";
+    adminPanel.style.transform = isVisible ? "translateX(100%)" : "translateX(0px)";
     
     // Update admin button active state
     const navAdmin = document.getElementById("nav-admin");
@@ -1092,3 +1105,17 @@ window.addEventListener("popstate", (event) => {
 
 // Export for global access
 window.SEFrameworkApp = SEFrameworkApp;
+
+
+/***/ })
+
+},
+/******/ function(__webpack_require__) { // webpackRuntimeModules
+/******/ /* webpack/runtime/getFullHash */
+/******/ (() => {
+/******/ 	__webpack_require__.h = () => ("18cda838b73a537ccc16")
+/******/ })();
+/******/ 
+/******/ }
+);
+//# sourceMappingURL=main.fd6625de9003d245ba1b.hot-update.js.map
