@@ -9,6 +9,11 @@ class RecommendationEngine {
     this.dependencyData = dependencyData;
     this.app = app;
     this.recommendations = {};
+    this.calculationSettings = {
+      basicThreshold: 2.0,
+      standardThreshold: 3.5,
+      maxDependencyIterations: 10
+    };
   }
 
   generateRecommendations(assessmentScores) {
@@ -54,11 +59,15 @@ class RecommendationEngine {
     const baseScore = this.calculateBaseScore(process, scores);
     console.log("Base score for", process.id, ":", baseScore);
 
+    // Get thresholds from calculation settings or use defaults
+    const basicThreshold = this.calculationSettings?.basicThreshold || 2.1;
+    const standardThreshold = this.calculationSettings?.standardThreshold || 3.6;
+    
     // Determine level based on score thresholds
     let level = 'basic';
-    if (baseScore >= 3.6) {
+    if (baseScore >= standardThreshold) {
       level = 'comprehensive';
-    } else if (baseScore >= 2.1) {
+    } else if (baseScore >= basicThreshold) {
       level = 'standard';
     }
     console.log("Recommended level for", process.id, ":", level);
@@ -136,7 +145,7 @@ class RecommendationEngine {
     const dependencies = this.dependencyData.dependencies || [];
     let changed = true;
     let iterations = 0;
-    const maxIterations = 10; // Prevent infinite loops
+    const maxIterations = this.calculationSettings?.maxDependencyIterations || 10; // Prevent infinite loops
 
     // Iteratively apply constraints until no more changes
     while (changed && iterations < maxIterations) {

@@ -23,6 +23,7 @@
     
     <!-- Custom CSS -->
     <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/admin.css">
 </head>
 <body>
     <!-- Navigation Header -->
@@ -62,6 +63,11 @@
                     <li class="nav-item">
                         <a class="nav-link" href="#" id="nav-export">
                             <i class="bi bi-download"></i> Export
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="nav-admin">
+                            <i class="bi bi-sliders"></i> Admin
                         </a>
                     </li>
                 </ul>
@@ -317,6 +323,76 @@
                 <span class="visually-hidden">Loading...</span>
             </div>
             <p>Loading framework data...</p>
+        </div>
+    </div>
+
+    <!-- Admin Panel (Visible on left side by default) -->
+    <div class="admin-panel position-fixed top-0 start-0 w-72 h-full bg-dark text-white p-4" id="admin-panel">
+        <div class="admin-header">
+            <h3 class="mb-3">
+                <i class="bi bi-sliders"></i> Admin Portal
+            </h3>
+            <p class="small text-muted">Configure and customize the framework</p>
+        </div>
+        
+        <div class="admin-menu mb-4">
+            <h4>Configuration Editor</h4>
+            <button id="edit-questions-btn" class="admin-edit-btn w-100 mb-2">
+                <i class="bi bi-clipboard2-question mr-2"></i> Edit Assessment Questions
+            </button>
+            <button id="edit-processes-btn" class="admin-edit-btn w-100 mb-2">
+                <i class="bi bi-diagram-2 mr-2"></i> Edit Process Definitions
+            </button>
+            <button id="edit-dependencies-btn" class="admin-edit-btn w-100 mb-2">
+                <i class="bi bi-link mr-2"></i> Edit Process Dependencies
+            </button>
+            <button id="edit-calculations-btn" class="admin-edit-btn w-100 mb-2">
+                <i class="bi bi-calculator mr-2"></i> Edit Calculation Parameters
+            </button>
+            <button id="edit-weights-btn" class="admin-edit-btn w-100 mb-2">
+                <i class="bi bi-balance-scale mr-2"></i> Edit Process Weights
+            </button>
+        </div>
+        
+        <div class="admin-actions">
+            <h4>Actions</h4>
+            <button id="save-changes-btn" class="btn btn-success w-100 mb-2">
+                <i class="bi bi-save mr-2"></i> Save Changes
+            </button>
+            <button id="reset-changes-btn" class="btn btn-warning w-100 mb-2">
+                <i class="bi bi-arrow-counterclockwise mr-2"></i> Reset Changes
+            </button>
+            <button id="export-config-btn" class="btn btn-primary w-100 mb-2">
+                <i class="bi bi-download mr-2"></i> Export Configuration
+            </button>
+            <button id="import-config-btn" class="btn btn-primary w-100 mb-2">
+                <i class="bi bi-upload mr-2"></i> Import Configuration
+            </button>
+            <input type="file" id="import-file-input" accept=".json" style="display: none;">
+            <button id="admin-logout-btn" class="btn btn-danger w-100 mt-4">
+                <i class="bi bi-box-arrow-right mr-2"></i> Logout
+            </button>
+        </div>
+    </div>
+
+    <!-- Admin Editor Modal (Hidden by default) -->
+    <div class="modal fade" id="admin-editor-modal" tabindex="-1" aria-labelledby="admin-editor-modal-label" aria-hidden="true">
+        <div class="modal-dialog modal-xl">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="admin-editor-modal-label">Admin Editor</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body admin-editor-container">
+                    <div id="editor-content">
+                        <!-- Editor content will be dynamically loaded here -->
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                    <button type="button" id="save-editor-btn" class="btn btn-primary">Save Changes</button>
+                </div>
+            </div>
         </div>
     </div>
 

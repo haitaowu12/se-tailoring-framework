@@ -162,12 +162,40 @@ class SEFrameworkApp {
       this.exportManager = new ExportManager(this);
       console.log("ExportManager created");
 
+      // Initialize admin portal - TEMPORARILY DISABLED FOR PRODUCTION
+      // if (typeof AdminPortal !== "undefined") {
+      //   this.adminPortal = new AdminPortal(this);
+      //   this.adminPortal.init();
+      //   console.log("AdminPortal created and initialized");
+      // } else {
+      //   console.log("AdminPortal class not loaded");
+      // }
+
       console.log("Step 2.7: All components initialized successfully");
-    } catch (error) {
-      console.error("Error loading data:", error);
-      throw error;
+  } catch (error) {
+    console.error("Error loading data:", error);
+    throw error;
+  }
+}
+
+toggleAdminPanel() {
+  const adminPanel = document.getElementById("admin-panel");
+  if (adminPanel) {
+    // Check if panel is currently visible (has transform style or is positioned at left: 0)
+    const isVisible = adminPanel.style.transform === "translateX(0px)" || 
+                     adminPanel.style.transform === "" ||
+                     adminPanel.style.left === "0px";
+    
+    // Toggle panel visibility - move it off-screen to the left
+    adminPanel.style.transform = isVisible ? "translateX(-100%)" : "translateX(0px)";
+    
+    // Update admin button active state
+    const navAdmin = document.getElementById("nav-admin");
+    if (navAdmin) {
+      navAdmin.classList.toggle("active", !isVisible);
     }
   }
+}
 
   setupEventListeners() {
     try {
@@ -220,6 +248,15 @@ class SEFrameworkApp {
         });
       }
 
+      // Admin panel toggle
+      const navAdmin = document.getElementById("nav-admin");
+      if (navAdmin) {
+        navAdmin.addEventListener("click", (e) => {
+          e.preventDefault();
+          this.toggleAdminPanel();
+        });
+      }
+
       // Start assessment button
       const startAssessmentBtn = document.getElementById(
         "start-assessment-btn",
@@ -256,6 +293,10 @@ class SEFrameworkApp {
           case "5":
             e.preventDefault();
             this.showView("export");
+            break;
+          case "6":
+            e.preventDefault();
+            this.toggleAdminPanel();
             break;
         }
       }
