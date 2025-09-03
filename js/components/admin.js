@@ -16,31 +16,13 @@ class AdminPortal {
 
   init() {
     console.log('Admin Portal initialized');
-    this.addAdminLoginButton();
     this.setupEventListeners();
-  }
-
-  addAdminLoginButton() {
-    const navbar = document.querySelector('.navbar');
-    if (!navbar) return;
-
-    const adminButton = document.createElement('button');
-    adminButton.id = 'admin-login-btn';
-    adminButton.className = 'btn btn-secondary ms-auto';
-    adminButton.textContent = 'Admin Login';
-    adminButton.style.display = 'none'; // Hidden by default
-    
-    // For development purposes, show the button after 3 seconds
-    setTimeout(() => {
-      adminButton.style.display = 'block';
-    }, 3000);
-
-    navbar.appendChild(adminButton);
   }
 
   setupEventListeners() {
     document.addEventListener('click', (e) => {
-      if (e.target.id === 'admin-login-btn') {
+      // Use the existing nav-admin button for authentication
+      if (e.target.id === 'nav-admin') {
         this.showLoginPrompt();
       } else if (e.target.id === 'admin-logout-btn') {
         this.logout();
@@ -54,28 +36,139 @@ class AdminPortal {
 
   togglePanelVisibility() {
     if (this.adminPanel) {
-      const isHidden = this.adminPanel.style.transform === 'translateX(320px)';
-      this.adminPanel.style.transform = isHidden ? 'translateX(0)' : 'translateX(320px)';
+      // Check if panel is currently visible
+      const isVisible = 
+        this.adminPanel.style.transform === 'translateX(0px)' || 
+        this.adminPanel.style.transform === '' ||
+        this.adminPanel.style.right === '0px';
+
+      if (isVisible) {
+        // Hide panel - move off-screen to the right (since it's positioned on the right)
+        this.adminPanel.style.transform = 'translateX(100%)';
+      } else {
+        // Show panel - move to visible position
+        this.adminPanel.style.transform = 'translateX(0px)';
+      }
+      
       const hideButton = document.getElementById('admin-hide-btn');
       if (hideButton) {
-        hideButton.textContent = isHidden ? 'Hide' : 'Show';
+        hideButton.textContent = isVisible ? 'Show' : 'Hide';
       }
     }
   }
 
   showLoginPrompt() {
-    const token = prompt('Enter admin security token:');
-    if (token === this.securityToken) {
-      this.enterAdminMode();
-    } else {
-      alert('Invalid admin token. Access denied.');
+    // Create a custom modal instead of using prompt()
+    const modalHtml = `
+      <div id="admin-login-modal" class="modal-backdrop">
+        <div class="modal-content">
+          <h3>Admin Login</h3>
+          <p>Enter admin security token to access the admin panel:</p>
+          <input type="password" id="admin-token-input" class="form-control mb-3" placeholder="Security Token">
+          <div class="modal-actions">
+            <button id="admin-login-submit" class="btn btn-primary">Login</button>
+            <button id="admin-login-cancel" class="btn btn-secondary">Cancel</button>
+          </div>
+        </div>
+      </div>
+    `;
+
+    // Add CSS for the modal
+    const style = document.createElement('style');
+    style.textContent = `
+      .modal-backdrop {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: rgba(0, 0, 0, 0.5);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+      }
+      .modal-content {
+        background: white;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        width: 90%;
+        max-width: 400px;
+      }
+      .modal-actions {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+        margin-top: 15px;
+      }
+      .form-control {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+      }
+    `;
+    document.head.appendChild(style);
+
+    // Add modal to the document
+    const modalContainer = document.createElement('div');
+    modalContainer.innerHTML = modalHtml;
+    document.body.appendChild(modalContainer);
+
+    const modal = document.getElementById('admin-login-modal');
+    const submitBtn = document.getElementById('admin-login-submit');
+    const cancelBtn = document.getElementById('admin-login-cancel');
+    const tokenInput = document.getElementById('admin-token-input');
+
+    // Handle form submission
+    const handleSubmit = () => {
+      const token = tokenInput.value;
+      if (token === this.securityToken) {
+        this.enterAdminMode();
+      } else {
+        alert('Invalid admin token. Access denied.');
+      }
+      this.closeLoginModal(modal, style);
+    };
+
+    // Handle cancel
+    const handleCancel = () => {
+      this.closeLoginModal(modal, style);
+    };
+
+    // Add event listeners
+    submitBtn.addEventListener('click', handleSubmit);
+    cancelBtn.addEventListener('click', handleCancel);
+    tokenInput.addEventListener('keypress', (e) => {
+      if (e.key === 'Enter') {
+        handleSubmit();
+      }
+    });
+
+    // Focus on the input field
+    tokenInput.focus();
+  }
+
+  closeLoginModal(modal, style) {
+    // Remove modal container from the document
+    // First find the modal container (which wraps the modal)
+    const modalContainer = document.querySelector('#admin-login-modal')?.parentNode;
+    
+    // Remove both the modal and its container if they exist
+    if (modalContainer && modalContainer.parentNode) {
+      modalContainer.parentNode.removeChild(modalContainer);
+    }
+    
+    // Also remove the style element
+    if (style && style.parentNode) {
+      style.parentNode.removeChild(style);
     }
   }
 
   enterAdminMode() {
     this.isAdminMode = true;
     this.createAdminPanel();
-    document.getElementById('admin-login-btn').style.display = 'none';
     
     // Save backup of original data
     this.currentDataBackup = {
@@ -517,12 +610,6 @@ class AdminPortal {
       }
       
       // No margin adjustment to restore - panel uses fixed positioning
-      
-      // Show login button again
-      const loginButton = document.getElementById('admin-login-btn');
-      if (loginButton) {
-        loginButton.style.display = 'block';
-      }
       
       // Restore original data
       this.resetChanges();
