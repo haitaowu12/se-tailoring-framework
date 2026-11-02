@@ -301,3 +301,5 @@ For questions, issues, or feature requests:
 ---
 
 **Made with ❤️ for the Systems Engineering community**
+
+Built by [Tony Wu](https://haitaowu12.github.io/tony-wu-home/) · [More projects](https://haitaowu12.github.io/tony-wu-home/#work).
